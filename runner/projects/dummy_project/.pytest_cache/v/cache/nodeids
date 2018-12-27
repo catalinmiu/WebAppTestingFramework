@@ -1,0 +1,6 @@
+[
+  "test_employee.py::TestEmployee::test_employee_ages",
+  "test_employee.py::TestEmployee::test_employee_functions",
+  "test_employee.py::TestEmployee::test_first_names",
+  "test_employee.py::TestEmployee::test_last_names"
+]
