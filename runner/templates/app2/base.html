@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>Test Runner</title>
+
+    <meta name="author" content="themesflat.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/bootstrap.css' %}" >
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/scrolling-nav.css' %}">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/responsive.css' %}">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/colors/color1.css' %}" id="colors">
+
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/animate.css' %}">
+
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}">
+
+    <!-- Favicon and touch icons  -->
+
+    <!--[if lt IE 9]>
+        <script src="{% static 'javascript/html5shiv.js' %}"></script>
+        <script src="{% static 'javascript/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body class="header-sticky page-loading">
+
+    <!-- Boxed -->
+    <div class="boxed">
+    <!-- Header -->
+    <div class="site-header">
+        <header id="header" class="header shawdow-header header-classic clearfix">
+            <div class="container-fluid">
+                <div class="header-wrap clearfix">
+                    <div class="logo-wrap">
+                        <div id="logo" class="logo">
+                            <a href="/" rel="home" title="TestRunner">
+
+                            </a>
+                        </div><!-- /.logo -->
+                    </div>
+                    <div class="btn-menu">
+                        <i class="ti-align-right"></i>
+                    </div><!-- //mobile menu button -->
+
+                    <div class="nav-flat-wrap">
+                        <div class="nav-wrap">
+                            <nav id="mainnav" class="mainnav">
+                                <ul class="menu">
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/">TestRunner</a></li>
+
+                                    {% if user.is_staff %}
+
+                                        <li><a href="/admin/logout/?next=/">Logout</a></li>
+                                        <li><h6>Hello, {{user.first_name}} {{user.last_name}}</h6></li>
+                                    {% endif %}
+                                </ul><!-- /.menu -->
+                            </nav><!-- /.mainnav -->
+                        </div><!-- /.nav-wrap -->
+                    </div>
+                </div><!-- /.header-inner -->
+            </div>
+        </header><!-- /.header -->
+    </div>
+
+
+    {% block content %}{% endblock %}
+
+    <!--&lt;!&ndash; Footer &ndash;&gt;-->
+    <!--<footer id="footer">-->
+        <!--<div class="header-footer">-->
+            <!--<div class="container">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                            <!--<div class="copyright text-center">-->
+                                <!--<p>Copyright @2018 BRD<br>All Rights Reserved.</p>-->
+                            <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</footer>-->
+
+
+    <!-- Go Top -->
+    <a class="go-top">
+        <i class="ti-angle-up"></i>
+    </a>
+    </div>
+
+    <script type="text/javascript" src="{% static 'javascript/jquery.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery.easing.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery-validate.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery.fancybox.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery-waypoints.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/imagesloaded.min.js'%}"></script>
+
+    <script type="text/javascript" src="{% static 'javascript/jquery.cookie.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery.isotope.min.js'%}"></script>
+
+    <script type="text/javascript" src="{% static 'javascript/parallax.js'%}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery.magnific-popup.min.js'%}"></script>
+
+
+    <script type="text/javascript" src="{% static 'javascript/main.js'%}"></script>
+
+    <!-- Revolution Slider -->
+    <script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.tools.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.revolution.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/slider.js'%}"></script>
+
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.actions.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.carousel.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.kenburn.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.migration.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.navigation.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js'%}"></script>
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+</body>
+</html>

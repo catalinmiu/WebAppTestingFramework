@@ -1,0 +1,52 @@
+{% extends "app2/base.html" %}
+{% block content %}
+
+    <!-- Page title -->
+    <section class="parallax parallax1 page-title">
+        <div class="overlay-parallax "></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h3 class="title">Select Projects</h3>
+                    </div><!-- /.page-title-captions -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="flat-row v8" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-center padding-contact">
+                        {%if errorMsg%}
+                            <div class="alert alert-danger">
+                              <strong>{{errorMsg}}</strong>
+                            </div>
+                        {%endif%}
+
+                        <form class="contactform2 focus-bottom" action="{% url 'index' %}" method="POST">
+                            {% csrf_token %}
+                        <p >
+                                <select class="form-control" name="env" id="env">
+                                  <option value="Project1">Project1</option>
+                                  <option value="Project2">Project2</option>
+                                </select>
+                        </p>
+
+                        <div class="btn-contact text-center">
+                            <p class="form-contact">
+                                <button type="submit" class="flat-button">Go!</button>
+                            </p>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

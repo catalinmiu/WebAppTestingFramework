@@ -1,0 +1,127 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}">
+{{ form.media }}
+{% endblock %}
+{% block login_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/style.css' %}">
+{% endblock %}
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+{% block login_page %}<section class="loading-overlay">
+                        <div class="preload-inner">
+                            <div class="wBall" id="wBall_1">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_2">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_3">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_4">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_5">
+                                <div class="wInnerBall"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Boxed -->
+                    <div class="boxed">
+                    <!-- Header -->
+                    <div class="site-header">
+                        <header id="header" class="header shawdow-header header-classic clearfix">
+                            <div class="container-fluid">
+                                <div class="header-wrap clearfix">
+                                    <div class="logo-wrap">
+                                        <div id="logo" class="logo">
+                                            <a href="/" rel="home" title="Test runner">
+                                            </a>
+                                        </div><!-- /.logo -->
+                                    </div>
+                                    <div class="btn-menu">
+                                        <i class="ti-align-right"></i>
+                                    </div><!-- //mobile menu button -->
+
+                                    <div class="nav-flat-wrap">
+                                        <div class="nav-wrap">
+                                            <nav id="mainnav" class="mainnav">
+                                                <ul class="menu">
+                                                    <li><a href="/">Home</a></li>
+                                                    <li><a href="/">Test runner</a></li>
+
+                                                </ul><!-- /.menu -->
+                                            </nav><!-- /.mainnav -->
+                                        </div><!-- /.nav-wrap -->
+                                    </div>
+                                </div><!-- /.header-inner -->
+                            </div>
+                        </header><!-- /.header -->
+                    </div>
+                </div>
+            {% endblock %}
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block branding %}
+    <div id="site-name">
+        <h1>Log in!</h1>
+    </div>
+{% endblock %}
+{% block content %}
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div id="content-main">
+
+{% if user.is_authenticated %}
+<p class="errornote">
+{% blocktrans trimmed %}
+    You are authenticated as {{ username }}, but are not authorized to
+    access this page. Would you like to login to a different account?
+{% endblocktrans %}
+</p>
+{% endif %}
+
+<form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+  <div class="form-row">
+    {{ form.username.errors }}
+    {{ form.username.label_tag }} {{ form.username }}
+  </div>
+  <div class="form-row">
+    {{ form.password.errors }}
+    {{ form.password.label_tag }} {{ form.password }}
+    <input type="hidden" name="next" value="{{ next }}">
+  </div>
+  {% url 'admin_password_reset' as password_reset_url %}
+  {% if password_reset_url %}
+  <div class="password-reset-link">
+    <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+  </div>
+  {% endif %}
+  <div class="submit-row">
+    <!--<input type="submit" value="{% trans 'Log in' %}">-->
+      <label>&nbsp;</label>
+      <button type="submit" class="flat-button" value="{% trans 'Log in' %}">Log in</button>
+  </div>
+</form>
+
+</div>
+{% endblock %}

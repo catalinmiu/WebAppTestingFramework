@@ -1,0 +1,181 @@
+/**
+  * Color
+  * Border Color
+  * Background Color  
+*/
+
+/* Color
+-------------------------------------------------------------- */
+.post .content-post .readmore, ul.portfolio-filter > li:hover a, ul.portfolio-filter > li.active a, .btn-filter-wrap > li:hover a, .btn-filter-wrap > li.active a, .btn-filter-wrap.color-white li.active a, .btn-filter-wrap.color-white li a:hover, .blog_carousel_metro .post h2.title-post a:hover, .blog_column_metro .post h2.title-post a:hover, .blog_column_metro .post .meta-post.style2 li.life a:hover, .wrap-process .flat-process li.step-by-step h3 a:hover, .wrap-blog-isotope3 ul.portfolio-filter.style3 > li.active a, .wrap-blog-isotope3 ul.portfolio-filter.style3 > li a:hover, .footer.home-shop ul li a:hover, .wrap-partners .flat-partners .content-partners h3 a:hover, ul.portfolio-filter > li span, .btn-filter-wrap > li span, .blog-pagination .flat-pagination li a:hover, .blog-pagination .flat-pagination li.active a, .blog-pagination .flat-pagination li.next:hover:after, .blog-pagination .flat-pagination li.previous:hover:after, .widget.widget-recent-new ul li a, .widget.widget-categories ul li a:hover, .widget.widget-nav-menu ul li.active a, .widget.widget-nav-menu ul li:hover a, .widget.widget-nav-menu ul li.active::before, .widget.widget-nav-menu ul li:hover:before, .widget-twiter .latest-tweets span.tweet_time a, .nav-social h4, .img-arrow.color-theme a i, .img-arrow a i, .notification_error, .notification_ok, #subscribe-button:hover, .subscribe-button:hover, .footer-style8 .info-contact .email, .footer-six .info-contact a:hover, label.error, .footer-style .contact-colorb2 input:focus, .footer-style .contact-colorb2 textarea:focus, .copyright h4, .widget_tweets ul li a:hover, .go-top i, .go-top3 i, .sidebar-shop .widget ul li a:hover, .sidebar-shop .widget ul li.active a, footer a:hover, .go-top3.style2:hover i, .post .meta-data ul li a:hover, .post h2.title-post a:hover, .widget_info .flat-information li a:hover, .blog-box .post .info-author .meta-post.style2 li a:hover, .grid-metro.gird-sidebar .post h2.title-post a:hover, .section-our-services .widget_info .flat-information li a:hover, .breadcrumbs ul li a:hover, .top span, .header-widget .widgets-header-information .info-icon i, ul.flat-infomation li a:hover, .product .product-item:hover .product-icon, .post .meta-post.style2 li.life a, .post .meta-post.style2 li a:hover, .post blockquote a, .comments-area ol.comment-list article .comment-metadata .date, .comments-area ol.comment-list article .comment-text h5 a:hover, .color-owl2.owl-theme .owl-controls .owl-nav div.owl-prev:hover:before, .color-owl2.owl-theme .owl-controls .owl-nav div.owl-next:hover:before, .blog_carousel_metro.grid-metro.carousel_metro_style2 .post .content-post::after, .section .list-step li i, .section-info-cretive ul.info-team li.position, .info-choose .list-choose li::before, #menu-slider ul li a, .link-gallery a:hover, .footer-gallery .nav-footer > ul > li > a:hover, .wrap-timeline .flat-timeline h3 span, .section ul.contact-info .email, .flat-error .text-error span, .company-our-team .title-section p a, .contact-minimal .info-contact a:hover, .blog_carousel_post .post .content-post .readmore, .img-arrow.style2 a:hover i, .color-nav-gray.owl-theme .owl-controls .owl-nav div.owl-prev:hover:before, .color-nav-gray.owl-theme .owl-controls .owl-nav div.owl-next:hover:before, .home-agency-s5 .blog_carousel_post .post .meta-post.style2 li, .wrap-footer .mainnav.color-white > ul > li > a:hover, .aboutus-viewall .readmore, .wrap-filter-blog ul.portfolio-filter > li.active a, .wrap-filter-blog ul.portfolio-filter > li:hover a, .style4_carousel_post .featured-left .post .content-post .readmore, .flat-our-work .viewproject, .blog-metro-section .post .content-post .readmore, .section_carousel_post3 .blog_carousel_post .post .content-post .readmore:hover, .testimonials .position.color-theme2, .section-text-box .post .content-post .readmore:hover, .section-text-box .post .content-post .readmore,
+.testimonials::before, .testimonials .position, .iconbox .box-content .box-title a:hover, .iconbox .box-content .box-title.color-black a:hover, .list-style > li.active > a, .list-style > li:hover > a, .list-style li a::before, .owl-theme .owl-controls .owl-nav div.owl-prev:hover:before, .owl-theme .owl-controls .owl-nav div.owl-next:hover:before, a:hover, a:focus,
+.style-white .menu-extra > ul > li.show-search.active:hover a i, .header.downscrolled.header-classic #mainnav > ul > li:hover > a, .header.downscrolled.header-classic #mainnav > ul > li.home > a, #mainnav > ul > li:hover > a, #mainnav > ul > li.home > a, .menu-extra > ul > li:hover a i, .menu-extra > ul > li:hover a span, #mainnav .submenu > li:hover > a, .downscrolled #mainnav > ul > li.home > a, .downscrolled #mainnav > ul > li:hover > a,  .teammember .info-overlay .flat-socials > a:hover i:last-child, .portfolio-item .portfolio-info .categories, .portfolio-item .portfolio-info-show .flat-socials > a:hover i:last-child, .flat-tabs .content-tab.float-left span, .list-style.list-hoverblue > li.active > a, .list-style.list-hoverblue > li:hover > a, .list-style.list-hoverblue li.active > a::before, .list-style.list-hoverblue li:hover > a::before, .list-style.color-silver > li.active > a, .list-style.color-silver > li:hover > a, .list-style.color-silver > li.active > a::before, .list-style.color-silver > li:hover > a::before, .countdown .square .numb, .flat-blockquotes blockquote i, .flat-blockquotes blockquote h4, .product .product-item a.add-to-cart, .flat-teammember-full .teammember .content, .flat-accordion .toggle-title:before, .contact-form-center .focus-bottom input:focus, .contact-form-center .focus-bottom textarea:focus, .contact-form-center.contact-borderfull .focus-bottom input:focus, .contact-form-center.contact-borderfull .focus-bottom textarea:focus, .flat-iconboxes.style2 .iconbox .box-content .readmore a, .title-call-action.color-theme, .switcher-container h2 i, .style4_carousel_post .featured-left .post .meta-post.style2 li.day, .section-call-now .flat-phone .icon, .iconbox.style3 .box-icon, .flat-counter .icon-count i, .flat-teammember-circle.style3 .teammember .content .position, .flat-teammember-circle.style2 .teammember .content .position {
+	color: #e456a9;
+}
+
+.flat-iconboxes.style2 .iconbox.style2 .step, .iconbox .step {
+    color: rgba(228, 86, 169, 0.3);
+}
+
+.tp-caption.botton-slider, .tp-caption.color-theme, .tp-caption span.color-theme {
+	color: #e456a9!important;
+}
+
+.tp-caption.botton-slider.bg2e2f {
+    color: #fff!important;
+}
+
+#mainnav.color-white > ul > li > a {
+    color: #FFF;
+}
+
+
+/* Background Color
+-------------------------------------------------------------- */
+.flat-button, .loading-overlay .wBall .wInnerBall, .bg-theme, #mainnav.before-colortheme > ul > li > a::after, .title-section.line .title::after, .flat-socials > a:hover, .flat-button.bg-black:hover, .flat-button.bg-white:hover, .flat-button.bg-white-default:hover, .flat-button.bg-white2:hover, .go-top:hover, .go-top3:hover, .post .content-post .readmore::before, #mainnav > ul > li > a::after, .flat-video a:hover:before, .flat-video.style2 a:before, .nav-footer > ul > li > a::after, .aboutus-viewall .readmore::before, .section .list-step li::before, .section .list-step li::after, .section .list-step li i::after, ul.portfolio-filter.style3 > li a::after, .flat-button.bg-transparent:hover, #menu-slider ul li.active:after, #menu-slider ul li:hover:after, .flat-add-project, .product .product-item a.add-to-cart::before, .flat-button.gradient-bg1:hover, .flat-button.gradient-bg2:hover, .flat-button.gradient-bg3:hover, .flat-button.gradient-bg4:hover, .flat-button.gradient-bg5:hover, .flat-button.gradient-bg6:hover,
+.header.downscrolled #mainnav.color-white > ul > li > a::after, .testimonials.style3:hover .message, .page-planding .btn-purchase a, .sw-odd .sw-image .sw-buy, .widget.widget-tags .tags-list a:hover, .testimonials.style3 .message.active, .flat-tabs .menu-tab.inline li:after, .widget.widget-categories ul li::before, .widget.widget-color .list-color li::before, .flat-accordion.style2 .toggle-title.active, .go-top3.style2, .flat-progress.color-theme .progress-animate, .flat-progress.color-theme .perc.after-box::after, .flat-blockquotes blockquote h4:before, .flat-blockquotes blockquote.color-back, .main-history .flat-timeline .data-year::before, .home-comming .wrap-countdown::after, .home-architecture-s4.call-action.style2 .btn-action .flat-button, .flat-teammember-circle .teammember .info-overlay, .flat-iconboxes.style2::after, .testimonials.style3.item2:hover .message, .testimonials.style3.item2 .message.active {
+	background-color: #e456a9;
+}
+
+.tp-caption.line, .tp-caption.botton-slider.gradient-bg:hover, .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #e456a9!important;
+}
+
+.tp-caption.botton-slider:hover, .tp-caption.botton-slider.bg2e2f:hover, .tp-caption.botton-slider.bgtheme {
+    background-color: #e456a9!important;
+    color: #fff!important;
+}
+
+.blog_carousel_metro.grid-metro.carousel_metro_style2 .post .content-post::before {
+	background-color: rgba(228, 86, 169, 0.9);
+}
+
+.flat-images-hover .flat-hover-overlay, .overlay-blog, .wrap-process .flat-process li::before {
+	background-color: rgba(228, 86, 169, 0.8);
+}
+
+.teammember .info-overlay, .portfolio-shop .info-shop, .wrap-gallery .gallery-item .gallery-link {
+	background-color: rgba(228, 86, 169, 0.7);
+}
+
+.flat-accordion.color-white .toggle-title.active:after {
+    background-color: rgba(228, 86, 169, 0.4);
+}
+
+.tp-caption.botton-slider.gradient-bg:hover {
+    background-image: none!important;
+}
+
+.overlay-slider, .blog_column_metro.grid-metro .post .content-post::before, .blog_carousel_metro .post:hover .content-post::before, .flat-video.bg-gradient a:before, .blog-metro-section.grid-metro .post:hover .overlay-blog {
+	background-image: -webkit-linear-gradient(135deg, #e456a9 30%, #aa61cc 70%);
+    background-image: -moz-linear-gradient(135deg, #e456a9 30%, #aa61cc 70%);
+    background-image: -ms-linear-gradient(135deg, #e456a9 30%, #aa61cc 70%);
+    background-image: -o-linear-gradient(135deg, #e456a9 30%, #aa61cc 70%);
+    background-image: linear-gradient(135deg, #e456a9 30%, #aa61cc 70%);
+}
+
+.tp-caption.botton-slider.gradient-bg {
+    background-image: -webkit-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%)!important;
+    background-image: -moz-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%)!important;
+    background-image: -ms-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%)!important;
+    background-image: -o-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%)!important;
+    background-image: linear-gradient(135deg, #e456a9 33%, #aa61cc 67%)!important;
+}
+
+.iconbox .box-icon.color-gradient, .flat-counter .icon-count.color-gradient i, .flat-socials.gradient-bgvioletgreen a:hover, .flat-button.gradient-bg6, .iconbox .overlay {
+    background-image: -webkit-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%);
+    background-image: -moz-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%);
+    background-image: -ms-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%);
+    background-image: -o-linear-gradient(135deg, #e456a9 33%, #aa61cc 67%);
+    background-image: linear-gradient(135deg, #e456a9 33%, #aa61cc 67%);
+}
+
+.flat-teammember-circle .teammember .info-overlay.bg-gradient::before, .flat-add-project:hover, .flat-add-project.active {
+    background-image: -webkit-linear-gradient(135deg, #e456a9 0%, #aa61cc 70%);
+    background-image: -moz-linear-gradient(135deg, #e456a9 0%, #aa61cc 70%);
+    background-image: -ms-linear-gradient(135deg, #e456a9 0%, #aa61cc 70%);
+    background-image: -o-linear-gradient(135deg, #e456a9 0%, #aa61cc 70%);
+    background-image: linear-gradient(135deg, #e456a9 0%, #aa61cc 70%);
+}
+
+.pricing-item.active .header-pricing, .pricing-item.style2.active .header-pricing .flat-value {
+    background-image: -webkit-linear-gradient(135deg, #e456a9 10%, #aa61cc 90%);
+    background-image: -moz-linear-gradient(135deg, #e456a9 10%, #aa61cc 90%);
+    background-image: -ms-linear-gradient(135deg, #e456a9 10%, #aa61cc 90%);
+    background-image: -o-linear-gradient(135deg, #e456a9 10%, #aa61cc 90%);
+    background-image: linear-gradient(135deg, #e456a9 10%, #aa61cc 90%);
+}
+
+.link-socials.style2 li::after {
+    background-image: -webkit-linear-gradient(90deg, #e456a9 50%, #aa61cc 50%);
+    background-image: -moz-linear-gradient(90deg, #e456a9 50%, #aa61cc 50%);
+    background-image: -ms-linear-gradient(90deg, #e456a9 50%, #aa61cc 50%);
+    background-image: -o-linear-gradient(90deg, #e456a9 50%, #aa61cc 50%);
+    background-image: linear-gradient(90deg, #e456a9 50%, #aa61cc 50%);
+}
+
+hr.custom-gradient {
+    background-image: -webkit-linear-gradient(45deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -moz-linear-gradient(45deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -ms-linear-gradient(45deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -o-linear-gradient(45deg, #e456a9 40%, #aa61cc 55%);
+    background-image: linear-gradient(45deg, #e456a9 40%, #aa61cc 55%);
+}
+
+.ovelay-gradient.bgvioletgreen, .bg-gradient-violetgreen {
+    background-image: -webkit-linear-gradient(135deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -moz-linear-gradient(135deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -ms-linear-gradient(135deg, #e456a9 40%, #aa61cc 55%);
+    background-image: -o-linear-gradient(135deg, #e456a9 40%, #aa61cc 55%);
+    background-image: linear-gradient(135deg, #e456a9 40%, #aa61cc 55%);
+}
+
+/* Border Color
+-------------------------------------------------------------- */
+#subscribe-form input:focus, .subscribe-form input:focus, .style-after::after, .widget.widget-tags .tags-list a:hover, .flat-button.bg-white, .blog-columnist .year-timeline.fontsize13 .flat-button, .flat-button.border-black:hover, .flat-blockquotes blockquote, hr.custom-color, .flat-button.border-theme-color2e2f, .flat-button.border-white:hover, .flat-button.border-theme, .wrap-process .featured-process::before, .call-action.style2 .btn-action.button-apply .flat-button, .contact-form-center .focus-bottom input:focus, .contact-form-center .focus-bottom textarea:focus, .contact-form-center.contact-borderfull .focus-bottom input:focus, .contact-form-center.contact-borderfull .focus-bottom textarea:focus, .flat-video a:hover:before, .flat-video.style2 a:before, .section .list-step li i, .flat-button.bg-transparent:hover, .border-2px.flat-button, .shopping-cart .subcart .flat-button, .go-top, .go-top3, .aboutus-viewall::before, .wrap-testimonials.border-full .flat-testimonials, .footer-style .contact-colorb2 input:focus, .footer-style .contact-colorb2 textarea:focus {
+	border-color: #e456a9;
+}
+
+.testimonials.style3.converse:hover .message:before, .testimonials.style3.converse .message.active:before, .countdown.style2.color-white .square .numb {
+    border-bottom-color: #e456a9;
+}
+
+.flat-progress.color-theme .perc.after-box::before, .testimonials.style3:hover .message:before, .testimonials.style3 .message.active:before, .testimonials.style3.item2:hover .message:before, .testimonials.style3.item2 .message.active:before {
+    border-top-color: #e456a9;
+}
+
+.flat-button.gradient-border6, .pricing-item:hover .flat-button.border-black, .pricing-item.active .flat-button.border-black {
+    border-color: #e456a9 #aa61cc #aa61cc #e456a9;
+}
+
+.tp-mask-wrap .flat-button.tp-caption.botton-slider.color2e2f:hover,
+.flat-button.tp-caption.botton-slider.border-button.gradient-border:hover,.tp-mask-wrap .tp-caption.botton-slider.border-button.bordercolortheme {
+	border-color: #e456a9!important;
+}
+
+.flat-button.tp-caption.botton-slider.border-button:hover,.flat-button.button-gradient-border:hover {
+    border-color: #e456a9!important;
+    background-color: #e456a9!important;
+}
+
+.tp-mask-wrap .tp-caption.botton-slider.border-button.gradient-border {
+    border-color: #e456a9 #aa61cc #aa61cc #e456a9!important;
+}
+
+.flat-accordion.color-white .flat-toggle {
+    border-color: rgba(228, 86, 169, 0.4);
+}
+
+/* Bow-shadow
+-------------------------------------------------------------- */
+.flat-accordion.style3 .toggle-title.active {
+    -webkit-box-shadow: inset 4px 0 0 rgba(228, 86, 169, 1);
+    box-shadow: inset 4px 0 0 rgba(228, 86, 169, 1);
+}
+
+.flat-tabs .menu-tab.float-left li.active, .flat-tabs .menu-tab.float-left li:hover, .flat-accordion.style3 .toggle-title.active {
+    -webkit-box-shadow: inset -4px 0 0 rgba(228, 86, 169, 1);
+    box-shadow: inset -4px 0 0 rgba(228, 86, 169, 1);
+}
+
+
+

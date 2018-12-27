@@ -1,0 +1,67 @@
+{% extends "app2/base.html" %}
+{% block content %}
+<section class="flat-row" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-center padding-contact">
+                        <div class="alert alert-success">
+                          <strong>{{successMsg}}</strong>
+                        </div>
+                        <ul class="list-info">
+                            <li>Front-office: <span>{{base}}</span></li>
+                            <li>Environment: <span>{{env}}</span></li>
+                            <li>IP: <span>{{ip}}</span></li>
+                            <li>Date: <span>{{date}}</span></li>
+                        </ul>
+
+                        <br>
+                        <div class="wrap-column clearfix ">
+                            <div class="flat-column one-half text-center">
+                                <button type="submit" class="flat-button bg-green supper-size" onclick="getSdi()">GET SDI </button>
+                            </div>
+                            <div class="flat-column one-half text-center">
+                                <button type="submit" class="flat-button bg-green supper-size" disabled> GET MOD </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <br>
+        <br>
+        <br>
+            <div class="row">
+                <div class="col-md-4">
+                        <div class="flat-column one-half text-center">
+                            <button type="submit" class="flat-button" onclick="getCLogs()">C LOGS</button>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class="flat-column one-half text-center">
+                            <button type="submit" class="flat-button" onclick="getKLogs()">K LOGS</button>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class="flat-column one-half text-center">
+                            <button type="submit" class="flat-button" onclick="getRLogs()">R LOGS</button>
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="services">
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+                {{errorMsg}}
+            </div>
+          </div>
+      </div>
+    </section>
+
+{% endblock %}
+
