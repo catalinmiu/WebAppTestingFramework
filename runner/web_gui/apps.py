@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class RunnerappConfig(AppConfig):
-    name = 'runnerApp'
+    name = 'web_gui'

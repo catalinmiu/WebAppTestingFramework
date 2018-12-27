@@ -26,21 +26,12 @@
                             </div>
                         {%endif%}
 
-                        <form class="contactform2 focus-bottom" action="{% url 'index' %}" method="POST">
                             {% csrf_token %}
-                        <p >
-                                <select class="form-control" name="env" id="env">
-                                  <option value="Project1">Project1</option>
-                                  <option value="Project2">Project2</option>
-                                </select>
-                        </p>
-
-                        <div class="btn-contact text-center">
-                            <p class="form-contact">
-                                <button type="submit" class="flat-button">Go!</button>
-                            </p>
-                        </div>
-                    </form>
+                        <ul class="list-group t20">
+                            {% for project in project_list %}
+                                <li class="list-group-item">{{ project.name }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
