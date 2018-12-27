@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a60eeec8-6801-4f6a-b418-751367f5ed74" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/runner/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runner/projects/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runner/projects/dummy_project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runner/projects/dummy_project/test_employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runner/projects/selenium_project/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runner/projects/selenium_project/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runner/projects/selenium_project/test_duckduckgo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runner/projects/selenium_project/test_python_dot_org.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/web_gui/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/runner/web_gui/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,11 +61,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_employee.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_employee.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/runner/projects/dummy_project/test_employee.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="510">
+              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_duckduckgo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runner/projects/selenium_project/test_duckduckgo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_python_dot_org.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/runner/projects/selenium_project/test_python_dot_org.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,6 +140,9 @@
         <option value="$PROJECT_DIR$/runner/web_gui/models.py" />
         <option value="$PROJECT_DIR$/runner/dummy_project/test_employees.py" />
         <option value="$PROJECT_DIR$/runner/dummy_project/test_employee.py" />
+        <option value="$PROJECT_DIR$/runner/projects/selenium_project/test_duckduckgo.py" />
+        <option value="$PROJECT_DIR$/runner/projects/selenium_project/test_bandcamp.py" />
+        <option value="$PROJECT_DIR$/runner/projects/selenium_project/test_python_dot_org.py" />
       </list>
     </option>
   </component>
@@ -150,6 +174,13 @@
               <item name="WebAppTestingFramework" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebAppTestingFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAppTestingFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="selenium_project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebAppTestingFramework" type="b2602c69:ProjectViewProjectNode" />
@@ -187,7 +218,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\git\WebAppTestingFramework\runner\projects\selenium_project" />
+      <recent name="D:\projects\git\WebAppTestingFramework\runner" />
       <recent name="D:\projects\git\WebAppTestingFramework\runner\projects" />
+      <recent name="D:\projects\git\WebAppTestingFramework\runner\projects\selenium_project\drivers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,7 +236,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.py.test for test_python_dot_org.TestPythonWebsite">
+    <configuration name="py.test for test_python_dot_org.TestPythonWebsite" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="WebAppTestingFramework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/runner/projects/selenium_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_python_dot_org.TestPythonWebsite&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="py.test in test_duckduckgo.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="WebAppTestingFramework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/runner/projects/selenium_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/runner/projects/selenium_project/test_duckduckgo.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration name="py.test in test_employee.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="WebAppTestingFramework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -217,8 +279,31 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/runner/projects/dummy_project/test_employee.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
+    <configuration name="py.test in test_python_dot_org.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="WebAppTestingFramework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/runner/projects/selenium_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/runner/projects/selenium_project/test_python_dot_org.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.py.test in test_employee.py" />
+      <item itemvalue="Python tests.py.test in test_duckduckgo.py" />
+      <item itemvalue="Python tests.py.test in test_python_dot_org.py" />
+      <item itemvalue="Python tests.py.test for test_python_dot_org.TestPythonWebsite" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.py.test for test_python_dot_org.TestPythonWebsite" />
+        <item itemvalue="Python tests.py.test in test_python_dot_org.py" />
+        <item itemvalue="Python tests.py.test in test_duckduckgo.py" />
         <item itemvalue="Python tests.py.test in test_employee.py" />
       </list>
     </recent_temporary>
@@ -237,22 +322,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test_employee_py - 2018.12.27 at 22h 45m 17s.xml">
-      <configuration name="py.test in test_employee.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_in_test_employee_py - 2018.12.27 at 22h 51m 14s.xml">
       <configuration name="py.test in test_employee.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 22h 57m 09s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 22h 58m 26s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 22h 58m 47s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 22h 59m 47s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 23h 00m 32s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 23h 02m 31s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_duckduckgo_py - 2018.12.27 at 23h 02m 52s.xml">
+      <configuration name="py.test in test_duckduckgo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_bandcamp_py - 2018.12.27 at 23h 09m 29s.xml">
+      <configuration name="py.test in test_bandcamp.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_for_test_python_dot_org_TestPythonWebsite - 2018.12.27 at 23h 15m 51s.xml">
+      <configuration name="py.test for test_python_dot_org.TestPythonWebsite" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23717949" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23717949" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32893288" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32893288" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32893288" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -437,8 +546,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/runner/projects/dummy_project/test_employee.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="510">
+          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runner/projects/selenium_project/test_duckduckgo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runner/projects/selenium_project/test_python_dot_org.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
