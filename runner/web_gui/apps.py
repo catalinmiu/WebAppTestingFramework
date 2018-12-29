@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class RunnerappConfig(AppConfig):
+class RunnerAppConfig(AppConfig):
     name = 'web_gui'

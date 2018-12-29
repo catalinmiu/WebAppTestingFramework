@@ -28,7 +28,7 @@
 
                             {% csrf_token %}
                         <ul class="list-group t20">
-                            {% for project in project_list %}
+                            {% for project in projects %}
                             <a href="/project/{{ project.id}}">
                                 <li class="list-group-item">{{ project.name }}</li>
                             </a>
