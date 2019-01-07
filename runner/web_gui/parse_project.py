@@ -55,7 +55,7 @@ def update_projects():
         project.save()
     projects_to_delete = set(projects_already_in_db)-set(projects_in_folder)
     for project in projects_to_delete:
-        project.delete()
+        Project.objects.get(name=project).delete()
 
 
 def update_tests():
