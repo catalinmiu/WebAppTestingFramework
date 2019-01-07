@@ -3,7 +3,7 @@ import fnmatch
 from .models import Project, Test
 import sys
 import pytest
-
+from django.db import connection
 
 # class PyTestParser:
 #
@@ -49,13 +49,14 @@ def update_projects():
     projects_in_folder = get_all_projects()
 
     # compare projects in folder with projects in database
+    projects_to_delete = set(projects_already_in_db) - set(projects_in_folder)
+    for project in projects_to_delete:
+        Project.objects.get(name=project).delete()
     projects_to_add = set(projects_in_folder)-set(projects_already_in_db)
     for i in projects_to_add:
         project = Project(name=i)
         project.save()
-    projects_to_delete = set(projects_already_in_db)-set(projects_in_folder)
-    for project in projects_to_delete:
-        Project.objects.get(name=project).delete()
+
 
 
 def update_tests():
@@ -65,10 +66,19 @@ def update_tests():
         tests_in_folder = tests_to_project[project]
 
         # compare tests in project folder with tests in database
+        tests_to_delete = set(tests_already_in_db) - set(tests_in_folder)
+        for test in tests_to_delete:
+            cursor = connection.cursor()
+            query = 'DELETE FROM "web_gui_test" ' \
+                    'WHERE "web_gui_test"."id" IN ' \
+                    '(SELECT DISTINCT "web_gui_test"."id" ' \
+                    'FROM "web_gui_test" ' \
+                    'INNER JOIN "web_gui_project" on "web_gui_test"."project_id_id" = "web_gui_project"."id" ' \
+                    'WHERE "web_gui_project"."name" = \'{}\' and "web_gui_test"."title" = \'{}\')'.format(str(Project.objects.get(name=project)), test)
+            cursor.execute(query)
+            connection.commit()
         tests_to_add = set(tests_in_folder)-set(tests_already_in_db)
         for i in tests_to_add:
             test = Test(title=i, description='description', project_id=Project.objects.get(name=project))
             test.save()
-        tests_to_delete = set(tests_already_in_db)-set(tests_in_folder)
-        for test in tests_to_delete:
-            Test.objects.get(title=test).delete()
+
