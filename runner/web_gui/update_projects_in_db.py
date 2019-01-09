@@ -1,26 +1,8 @@
 import os
 import fnmatch
 from .models import Project, Test
-import sys
-import pytest
 from django.db import connection
 
-# class PyTestParser:
-#
-#     def __init__(self):
-#         self.collected = []
-#
-#     def pytest_collection_modifyitems(self, items):
-#         for item in items:
-#             self.collected.append(item)
-#
-#
-# my_plugin = PyTestParser()
-# directory = '.'
-# pytest.main(['--collect-only', directory], plugins=[my_plugin])
-#
-# for nodeid in my_plugin.collected:
-#     print(nodeid)
 
 def get_all_projects():
     files_to_remove = ['__pycache__', '__init__.py', '.pytest_cache']
@@ -58,7 +40,6 @@ def update_projects():
         project.save()
 
 
-
 def update_tests():
     tests_to_project = get_tests_per_project()
     for project in list(tests_to_project.keys()):
@@ -69,16 +50,17 @@ def update_tests():
         tests_to_delete = set(tests_already_in_db) - set(tests_in_folder)
         for test in tests_to_delete:
             cursor = connection.cursor()
-            query = 'DELETE FROM "web_gui_test" ' \
-                    'WHERE "web_gui_test"."id" IN ' \
-                    '(SELECT DISTINCT "web_gui_test"."id" ' \
-                    'FROM "web_gui_test" ' \
-                    'INNER JOIN "web_gui_project" on "web_gui_test"."project_id_id" = "web_gui_project"."id" ' \
-                    'WHERE "web_gui_project"."name" = \'{}\' and "web_gui_test"."title" = \'{}\')'.format(str(Project.objects.get(name=project)), test)
+            query = """
+            DELETE FROM "web_gui_test" 
+            WHERE "web_gui_test"."id" IN
+            (SELECT DISTINCT "web_gui_test"."id"
+            FROM "web_gui_test"
+            INNER JOIN "web_gui_project" on "web_gui_test"."project_id_id" = "web_gui_project"."id"
+            WHERE "web_gui_project"."name" = {} and "web_gui_test"."title" = {})"""\
+                .format(str(Project.objects.get(name=project)), test)
             cursor.execute(query)
             connection.commit()
         tests_to_add = set(tests_in_folder)-set(tests_already_in_db)
         for i in tests_to_add:
             test = Test(title=i, description='description', project_id=Project.objects.get(name=project))
             test.save()
-

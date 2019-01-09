@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from .models import Project, Test
-from .parse_project import update_projects, update_tests
+from .update_projects_in_db import update_projects, update_tests
 
 
 def index(request):
