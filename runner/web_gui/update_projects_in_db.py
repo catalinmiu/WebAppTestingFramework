@@ -2,6 +2,20 @@ import os
 import fnmatch
 from .models import Project, Test
 from django.db import connection
+import unittest
+
+
+def get_tests():
+    loader = unittest.TestLoader()
+    start_dir = 'projects/selenium_project'
+    suite = loader.discover(start_dir)
+    tests = []
+    for i in suite:
+        tests.append(i)
+    for i in tests:
+        for j in i._tests:
+            for k in j._tests:
+                print(str(k.__class__).split("'")[1] + "." + k._testMethodName)
 
 
 def get_all_projects():
@@ -42,9 +56,24 @@ def update_projects():
 
 def update_tests():
     tests_to_project = get_tests_per_project()
+
     for project in list(tests_to_project.keys()):
-        tests_already_in_db = [test.title for test in Test.objects.all().filter(project_id=Project.objects.get(name=project))]
-        tests_in_folder = tests_to_project[project]
+        tests_already_in_db = [(test.full_name, test.description) for test in Test.objects.all().filter(project_id=Project.objects.get(name=project))]
+        tests_in_folder = []
+        loader = unittest.TestLoader()
+        start_dir = 'projects/' + project
+        suite = loader.discover(start_dir)
+        tests = []
+        for i in suite:
+            tests.append(i)
+        for i in tests:
+            for j in i._tests:
+                for k in j._tests:
+                    if k._testMethodDoc is None:
+                        desc = ""
+                    else:
+                        desc = k._testMethodDoc
+                    tests_in_folder.append((str(k.__class__).split("'")[1] + "." + k._testMethodName, desc))
 
         # compare tests in project folder with tests in database
         tests_to_delete = set(tests_already_in_db) - set(tests_in_folder)
@@ -56,11 +85,11 @@ def update_tests():
             (SELECT DISTINCT "web_gui_test"."id"
             FROM "web_gui_test"
             INNER JOIN "web_gui_project" on "web_gui_test"."project_id_id" = "web_gui_project"."id"
-            WHERE "web_gui_project"."name" = {} and "web_gui_test"."title" = {})"""\
-                .format(str(Project.objects.get(name=project)), test)
+            WHERE "web_gui_project"."name" = \"{}\" and "web_gui_test"."full_name" = \"{}\")"""\
+                .format(str(Project.objects.get(name=project)), test[0])
             cursor.execute(query)
             connection.commit()
         tests_to_add = set(tests_in_folder)-set(tests_already_in_db)
         for i in tests_to_add:
-            test = Test(title=i, description='description', project_id=Project.objects.get(name=project))
+            test = Test(title=i[0].split(".")[-1], full_name=i[0], description=i[1], project_id=Project.objects.get(name=project))
             test.save()

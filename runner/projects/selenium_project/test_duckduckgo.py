@@ -4,7 +4,6 @@ from selenium.webdriver.firefox.options import Options
 
 
 class TestDuck(unittest.TestCase):
-
     def setUp(self):
         # opts = Options()
         # opts.set_headless()
@@ -13,6 +12,7 @@ class TestDuck(unittest.TestCase):
         self.browser = Chrome()
 
     def test_search_input_homepage(self):
+        """test1"""
         self.browser.get('https://duckduckgo.com')
 
         search_form = self.browser.find_element_by_id('search_form_input_homepage')
