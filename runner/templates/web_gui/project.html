@@ -13,8 +13,8 @@
             </div>
         </div>
     </section>
-
-<section class="flat-row v8" >
+<form method="post">
+    <section class="flat-row v8" >
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -22,7 +22,15 @@
                         {% csrf_token %}
                         <ul class="list-group t20">
                             {% for test in tests %}
-                                <li class="list-group-item">{{ test.title }}</li>
+
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" name = "checks" type="checkbox" value="{{test.id}}" id="{{test.id}}">
+                                      <label class="form-check-label" for="{{test.id}}">
+                                        {{ test.title }}
+                                      </label>
+                                    </div>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -35,6 +43,6 @@
             </div>
         </div>
     </section>
-
+</form>
 {% endblock %}
 

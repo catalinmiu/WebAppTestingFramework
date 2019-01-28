@@ -11,8 +11,8 @@ class Project(models.Model):
 
 
 class Test(models.Model):
-    title = models.CharField(max_length=40)
-    full_name = models.TextField(max_length=150, default=False)
+    title = models.TextField(default=None)
+    full_name = models.TextField(max_length=250, default=False)
     description = models.TextField(default=None)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
@@ -27,7 +27,10 @@ class Run(models.Model):
 
 
 class RunTest(models.Model):
-    run_id = models.ForeignKey(Run, on_delete=models.CASCADE)
-    test_id = models.ForeignKey(Test, on_delete=models.CASCADE)
-    logs = models.TextField
-    result = models.CharField(max_length=60)
+    run_id = models.ForeignKey(Run, on_delete=models.CASCADE, null=True)
+    test_id = models.ForeignKey(Test, on_delete=models.CASCADE, null=True)
+    logs = models.TextField(default=None)
+    result = models.IntegerField(default=-1)
+    start_time = models.TextField(default=None)
+    end_time = models.TextField(default=None)
+

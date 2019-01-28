@@ -1795,13 +1795,13 @@
     var retinaLogos = function() {
       var retina = window.devicePixelRatio > 1 ? true : false;
 
-//        if(retina) {
-//            if ( $('.header').hasClass('.logo-style2') ) {
-//                $('.header .logo').find('img').attr({src:'./images/logo2@2x.png',width:'88',height:'20'});
-//            }
-//            $('.header .logo').find('img').attr({src:'./images/logo@2x.png',width:'88',height:'20'});
-//            $('.logo-footer').find('img').attr({src:'./images/logo@2x.png',width:'88',height:'20'});
-//        }
+        if(retina) {
+            if ( $('.header').hasClass('.logo-style2') ) {
+                $('.header .logo').find('img').attr({src:'./images/logo2@2x.png',width:'88',height:'20'});   
+            }
+            $('.header .logo').find('img').attr({src:'./images/logo@2x.png',width:'88',height:'20'}); 
+            $('.logo-footer').find('img').attr({src:'./images/logo@2x.png',width:'88',height:'20'});
+        }
     };    
     
     var parallax = function() {

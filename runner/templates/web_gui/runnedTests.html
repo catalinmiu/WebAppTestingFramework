@@ -1,0 +1,53 @@
+{% extends "app2/base.html" %}
+{% load define_action %}
+{% block content %}
+<!-- Page title -->
+    <section class="parallax parallax1 page-title">
+        <div class="overlay-parallax "></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h3 class="title">{{ project.name }}</h3>
+                    </div><!-- /.page-title-captions -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="flat-row v8" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-center padding-contact">
+                        {% csrf_token %}
+                        <ul class="list-group t20">
+                            {% for test in tests %}
+                                <a href="/raport/{{test.id}}">
+                                    <li class="list-group-item">{{ test.id }}</li>
+                                </a>
+                            {% endfor %}
+                            <!--{% define -1 as value %}-->
+                            <!--{% for test in tests %}-->
+                                <!--{% if value != test.id%}-->
+                                    <!--<li class="list-group-item">{{ test.id }}</li>{% define test.id as value %}-->
+                                <!--{% else %}-->
+
+                                <!--{% endif %}-->
+                            <!--<a href="/runnedtest/{{test.run_id_id}}"><li class="list-group-item">{{ test.title }}</li></a>-->
+
+                            <!--{% endfor %}-->
+                        </ul>
+                    </div>
+                    <div class="btn-contact text-center">
+                        <p class="form-contact">
+                            <button type="submit" class="flat-button">Run</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

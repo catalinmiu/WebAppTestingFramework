@@ -1,0 +1,2590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>asd</title>
+  <meta name="generator" content="HTMLReport Catalin & un chinez 1.6.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <style type="text/css" media="screen">
+  body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  pre {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
+    white-space: pre-wrap
+  }
+
+  h1 {
+    font-size: 16pt;
+    color: gray
+  }
+
+  a.popup_link:hover {
+    color: red
+  }
+
+  .popup_window {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    background-color: #E6E6D6;
+    text-align: left;
+    font-size: 13px
+  }
+
+  #result_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #777
+  }
+
+  #header_row {
+    color: #fff;
+    background-color: #777
+  }
+
+  #result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+    min-width: 70px;
+    width: 100%
+  }
+
+  #result_table td:nth-child(n+2) {
+    text-align: center
+  }
+
+  #total_row {
+    font-weight: bold
+  }
+
+  .passClass,
+  .failClass,
+  .errorClass,
+  .skipClass {
+    font-weight: bold
+  }
+
+  .passCase {
+    background-color: #97cc64
+  }
+
+  .failCase {
+    background-color: #fd5a3e
+  }
+
+  .errorCase {
+    background-color: #ffd050
+  }
+
+  .skipCase {
+    background-color: #aaa
+  }
+
+  .hiddenRow {
+    display: none
+  }
+
+  .testcase {
+    margin-left: 2em
+  }
+
+  #popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none
+  }
+
+  #popup .bg {
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%
+  }
+
+  @media \0screen\,screen\9 {
+    #popup .bg {
+      background-color: #000;
+      filter: Alpha(opacity=50);
+      position: static
+    }
+    #popup .bg img {
+      position: relative
+    }
+  }
+
+  #popup img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  img.pic {
+    width: 500px;
+    cursor: pointer;
+  }
+
+  #wrapper {
+    margin: 0 auto;
+    border-top: solid 2px;
+  }
+  
+  #wrapper.lang-en p.lang-en {
+  }
+
+  #wrapper.lang-en span.lang-en {
+  }
+
+  #lang ul {
+    float: right;
+    margin: 0;
+    padding: 2px 10px 4px 10px;
+    border-radius: 0 0 4px 4px;
+    list-style: none;
+  }
+
+  #lang li {
+    margin: 0;
+    float: left;
+    padding: 0 5px;
+  }
+
+  #lang li a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-indent: -4em;
+    overflow: hidden;
+  }
+</style>
+  <script language="javascript" type="text/javascript">
+output_list = Array();
+function showCase(level) {
+  trs = document.getElementsByTagName("tr");
+  for (var i = 0; i < trs.length; i++) {
+    tr = trs[i];
+    id = tr.id;
+    if (id.substr(0, 2) === "st") {
+      if (level === 4 || level === 3) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "ft") {
+      if (level === 4 || level === 2) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "pt") {
+      if (level === 4 || level === 1) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "et") {
+      if (level === 4 || level === 5 || level === 2) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 4) === "div_") { tr.className = "hiddenRow"; }
+  }
+}
+
+function showClassDetail(cid, count) {
+  var id_list = Array(count);
+  var toHide = 1;
+  for (var i = 0; i < count; i++) {
+    tid0 = "t" + cid.substr(1) + "." + (i + 1);
+    tid = "f" + tid0;
+    tr = document.getElementById(tid);
+    if (!tr) {
+      tid = "p" + tid0;
+      tr = document.getElementById(tid);
+      if (!tr) {
+        tid = "e" + tid0;
+        tr = document.getElementById(tid);
+        if (tr === null) {
+          tid = "s" + tid0;
+          tr = document.getElementById(tid);
+        }
+      }
+    }
+    id_list[i] = tid;
+    if (tr.className) {
+      toHide = 0;
+    }
+  }
+  for (var i = 0; i < count; i++) {
+    tid = id_list[i];
+    if (toHide && tid.indexOf("p") !== -1) {
+      document.getElementById(tid).className = "hiddenRow";
+    } else {
+      document.getElementById(tid).className = "";
+    }
+    document.getElementById("div_" + tid).className = "hiddenRow";
+  }
+}
+
+function showTestDetail(div_id) {
+  var details_div = document.getElementById(div_id);
+  var className = details_div.className;
+  if (className != "") {
+    details_div.className = "";
+  } else {
+    details_div.className = "hiddenRow";
+  }
+}
+
+function html_escape(s) {
+  s = s.replace(/&/g, "&amp;");
+  s = s.replace(/</g, "&lt;");
+  s = s.replace(/>/g, "&gt;");
+  return s;
+}
+
+function load() {
+  var el_wrapper = document.getElementById('wrapper');
+  document.getElementById('lang-en').onclick = function () { el_wrapper.className = 'lang-en'; };
+
+  var h = (location.hash || '').replace(/#/, '');
+  var nav_lang;
+  el_wrapper.className = 'lang-en' + h;
+
+  var imgs = document.getElementsByClassName("pic");
+  var lens = imgs.length;
+  var popup = document.getElementById("popup");
+  for (var i = 0; i < lens; i++) {
+    imgs[i].onclick = function (event) {
+      event = event || window.event;
+      var target = document.elementFromPoint(event.clientX, event.clientY);
+      showBig(target.src);
+    };
+  }
+  popup.onclick = function () {
+    popup.getElementsByTagName("img")[0].src = "";
+    popup.style.display = "none";
+    popup.style.zIndex = "-1";
+  };
+  function showBig(src) {
+    popup.getElementsByTagName("img")[0].src = src;
+    popup.style.display = "block";
+    popup.style.zIndex = "999999";
+  }
+  google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Status', 'Status'],
+      ['Failed', 0],
+      ['Passed', 0],
+      ['Skip', 4],
+      ['Error', 23],
+    
+    ]);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = {'title':'Status', 'width':400, 'height':300, colors: ['#D8000C', '#4BB543', '#F1C40F', '#17202A'],};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+}
+    
+</script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+<body onload="load();showCase(0)">
+  <div id="wrapper" class="lang-en">
+
+    
+    <div class='heading col-md-12'>
+  <h1>asd</h1>
+  <p class='attribute'>
+    <strong>
+      <span class="lang-en">Start Time:</span>
+    </strong> 2019-01-25 11:25:25
+  </p>
+  <p class='attribute'>
+    <strong>
+      <span class="lang-en">End Time:</span>
+    </strong> 2019-01-25 11:27:11
+  </p>
+  <p class='attribute'>
+    <strong>
+      <span class="lang-en">Duration:</span>
+    </strong> 0:01:45.555010
+  </p>
+  <p class='attribute'>
+    <strong>
+      <span class="lang-en">Status:</span>
+    </strong>
+    <span class="lang-en">Total:</span>27&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Passed:</span>0&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Failed:</span>0&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Error:</span>23&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="lang-en">Skipped:</span>4&nbsp;&nbsp;&nbsp;&nbsp;
+  </p>
+</div> 
+    <div class="col-md-6" id="piechart"></div>
+    <div class="col-md-6" id="lang">
+      <ul>
+        <li>
+          <div href="#en" id="lang-en" title="English"></div>
+        </li>
+      </ul>
+    </div>
+    <br\>
+<p id='show_detail_line'>
+    Show:
+    </br>
+    <input type="radio" name = "1" value="1" onclick = "showCase(0)"/>
+        <label for="1">
+            
+                <span class="lang-en">Summary</span>
+            
+        </label>
+    <br/>
+    <input type="radio" name = "1" value="1" onclick = "showCase(1)"/>
+        <label for="1">
+            <span class="lang-en">Pass</span>         
+        </label>
+    <br/>
+    <input type="radio" name = "1" value="1" onclick = "showCase(2)"/>
+        <label for="1">
+                <span class="lang-en">Fail</span>
+        </label>
+    <br/>
+    <input type="radio" name = "1" value="1" onclick = "showCase(5)"/>
+        <label for="1">
+                <span class="lang-en">Error</span>
+        </label>
+    <br/>
+    <input type="radio" name = "1" value="1" onclick = "showCase(3)"/>
+        <label for="1">
+                <span class="lang-en">Skip</span>
+        </label>
+    <br/>
+    <input type="radio" name = "1" value="1" onclick = "showCase(4)"/>
+        <label for="1">
+                <span class="lang-en">ALL</span>
+        </label>
+</p>
+<table id='result_table'>
+  <tr id='header_row'>
+    <th>
+      <span class="lang-en">Test Group/Test case</span>
+    </th>
+    <th>
+      <span class="lang-en">Count</span>
+    </th>
+    <th>
+      <span class="lang-en">Passed</span>
+    </th>
+    <th>
+      <span class="lang-en">Failed</span>
+    </th>
+    <th>
+      <span class="lang-en">Erroneous</span>
+    </th>
+    <th>
+      <span class="lang-en">Skipped</span>
+    </th>
+    <th>
+      <span class="lang-en">Statistics</span>
+    </th>
+    <th>
+      <span class="lang-en">View</span>
+    </th>
+  </tr>
+  
+<tr class='errorClass'>
+  <td>DepositPfPP: Class containing Deposit "Persoana fizica" Password-Password tests.</td>
+  <td>24</td>
+  <td class="passCase">0</td>
+  <td class="failCase">0</td>
+  <td class="errorCase">20</td>
+  <td class="skipCase">4</td>
+  <td style="text-align:right;">0.00%</td>
+  <td>
+    <a href="javascript:showClassDetail('c1',24)">
+      <span class="lang-en">Detail</span>
+    </a>
+  </td>
+</tr>
+
+<tr id='et1.1' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_deposit_pf_p_p - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.1')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.1' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.1').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.1: 
+[   INFO] [2019-01-25 11:25:31,893] [9900] [html_test_result.py(42)] - Start Test: test_deposit_pf_p_p_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:33,645] [9900] [html_test_result.py(119)] - Error Test: test_deposit_pf_p_p_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 51, in test_deposit_pf_p_p
+    login_page = LoginPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\login_page.py", line 41, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: no such session
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+[   INFO] [2019-01-25 11:25:33,646] [9900] [html_test_result.py(53)] - Stop Test: test_deposit_pf_p_p_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:33,646] [9900] [html_test_result.py(55)] - Duration: 1.7524869441986084
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.2' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_deposit_pf_p_p - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.2')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.2' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.2').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.2: 
+[   INFO] [2019-01-25 11:25:33,646] [9900] [html_test_result.py(42)] - Start Test: test_deposit_pf_p_p_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:37,747] [9900] [html_test_result.py(119)] - Error Test: test_deposit_pf_p_p_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938320&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 48, in test_deposit_pf_p_p
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938320&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:37,749] [9900] [html_test_result.py(53)] - Stop Test: test_deposit_pf_p_p_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:37,750] [9900] [html_test_result.py(55)] - Duration: 4.103015422821045
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.3' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_deposit_pf_p_p - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.3')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.3' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.3').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.3: 
+[   INFO] [2019-01-25 11:25:37,750] [9900] [html_test_result.py(42)] - Start Test: test_deposit_pf_p_p_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:42,069] [9900] [html_test_result.py(119)] - Error Test: test_deposit_pf_p_p_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E20B8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 48, in test_deposit_pf_p_p
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E20B8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:42,070] [9900] [html_test_result.py(53)] - Stop Test: test_deposit_pf_p_p_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:42,070] [9900] [html_test_result.py(55)] - Duration: 4.319460153579712
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.4' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_deposit_pf_p_p - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.4')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.4' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.4').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.4: 
+[   INFO] [2019-01-25 11:25:42,070] [9900] [html_test_result.py(42)] - Start Test: test_deposit_pf_p_p_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:46,098] [9900] [html_test_result.py(119)] - Error Test: test_deposit_pf_p_p_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF9385F8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 48, in test_deposit_pf_p_p
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF9385F8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:46,127] [9900] [html_test_result.py(53)] - Stop Test: test_deposit_pf_p_p_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:46,128] [9900] [html_test_result.py(55)] - Duration: 4.056725025177002
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.5' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_liquidation_deposit - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.5')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.5' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.5').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.5: 
+[   INFO] [2019-01-25 11:25:46,128] [9900] [html_test_result.py(42)] - Start Test: test_liquidation_deposit_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:50,301] [9900] [html_test_result.py(119)] - Error Test: test_liquidation_deposit_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F7668&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 74, in test_liquidation_deposit
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F7668&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:50,338] [9900] [html_test_result.py(53)] - Stop Test: test_liquidation_deposit_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:50,355] [9900] [html_test_result.py(55)] - Duration: 4.205193519592285
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.6' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_liquidation_deposit - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.6')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.6' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.6').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.6: 
+[   INFO] [2019-01-25 11:25:50,383] [9900] [html_test_result.py(42)] - Start Test: test_liquidation_deposit_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:54,533] [9900] [html_test_result.py(119)] - Error Test: test_liquidation_deposit_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 82, in test_liquidation_deposit
+    investments_page = InvestmentsPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\investments_page.py", line 23, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:54,534] [9900] [html_test_result.py(53)] - Stop Test: test_liquidation_deposit_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:54,534] [9900] [html_test_result.py(55)] - Duration: 4.143406867980957
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.7' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_liquidation_deposit - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.7')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.7' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.7').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.7: 
+[   INFO] [2019-01-25 11:25:54,534] [9900] [html_test_result.py(42)] - Start Test: test_liquidation_deposit_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:25:58,546] [9900] [html_test_result.py(119)] - Error Test: test_liquidation_deposit_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2C88&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 82, in test_liquidation_deposit
+    investments_page = InvestmentsPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\investments_page.py", line 23, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2C88&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:25:58,548] [9900] [html_test_result.py(53)] - Stop Test: test_liquidation_deposit_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:25:58,548] [9900] [html_test_result.py(55)] - Duration: 4.013526678085327
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.8' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_liquidation_deposit - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.8')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.8' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.8').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.8: 
+[   INFO] [2019-01-25 11:25:58,549] [9900] [html_test_result.py(42)] - Start Test: test_liquidation_deposit_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:02,584] [9900] [html_test_result.py(119)] - Error Test: test_liquidation_deposit_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8B62B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 82, in test_liquidation_deposit
+    investments_page = InvestmentsPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\investments_page.py", line 23, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8B62B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:02,586] [9900] [html_test_result.py(53)] - Stop Test: test_liquidation_deposit_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,587] [9900] [html_test_result.py(55)] - Duration: 4.0376482009887695
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='st1.9' class='none'>
+  <td class='skipCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_performance_deposit_flux - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='skipCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_st1.9')">skip</a>
+  </td>
+</tr>
+<tr id='div_st1.9' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_st1.9').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+st1.9: 
+[   INFO] [2019-01-25 11:26:02,587] [9900] [html_test_result.py(42)] - Start Test: test_performance_deposit_flux_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,588] [9900] [html_test_result.py(83)] - Skip Test: test_performance_deposit_flux_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+demonstrating skipping
+[   INFO] [2019-01-25 11:26:02,588] [9900] [html_test_result.py(53)] - Stop Test: test_performance_deposit_flux_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,588] [9900] [html_test_result.py(55)] - Duration: 0.0
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='st1.10' class='none'>
+  <td class='skipCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_performance_deposit_flux - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='skipCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_st1.10')">skip</a>
+  </td>
+</tr>
+<tr id='div_st1.10' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_st1.10').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+st1.10: 
+[   INFO] [2019-01-25 11:26:02,588] [9900] [html_test_result.py(42)] - Start Test: test_performance_deposit_flux_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,589] [9900] [html_test_result.py(83)] - Skip Test: test_performance_deposit_flux_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+demonstrating skipping
+[   INFO] [2019-01-25 11:26:02,589] [9900] [html_test_result.py(53)] - Stop Test: test_performance_deposit_flux_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,589] [9900] [html_test_result.py(55)] - Duration: 0.0004990100860595703
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='st1.11' class='none'>
+  <td class='skipCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_performance_deposit_flux - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='skipCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_st1.11')">skip</a>
+  </td>
+</tr>
+<tr id='div_st1.11' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_st1.11').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+st1.11: 
+[   INFO] [2019-01-25 11:26:02,589] [9900] [html_test_result.py(42)] - Start Test: test_performance_deposit_flux_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,589] [9900] [html_test_result.py(83)] - Skip Test: test_performance_deposit_flux_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+demonstrating skipping
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(53)] - Stop Test: test_performance_deposit_flux_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(55)] - Duration: 0.0005033016204833984
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='st1.12' class='none'>
+  <td class='skipCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_performance_deposit_flux - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='skipCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_st1.12')">skip</a>
+  </td>
+</tr>
+<tr id='div_st1.12' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_st1.12').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+st1.12: 
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(42)] - Start Test: test_performance_deposit_flux_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(83)] - Skip Test: test_performance_deposit_flux_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+demonstrating skipping
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(53)] - Stop Test: test_performance_deposit_flux_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(55)] - Duration: 0.0
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.13' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_verify_transaction_history - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.13')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.13' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.13').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.13: 
+[   INFO] [2019-01-25 11:26:02,590] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_history_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:06,622] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_history_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2978&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 91, in test_verify_transaction_history
+    result_verifying_transaction_history = self.validate_transaction_history(i, line, previous_line)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 182, in validate_transaction_history
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2978&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:06,624] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_history_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:06,624] [9900] [html_test_result.py(55)] - Duration: 4.033172845840454
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.14' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_verify_transaction_history - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.14')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.14' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.14').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.14: 
+[   INFO] [2019-01-25 11:26:06,624] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_history_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:10,659] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_history_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF824780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 91, in test_verify_transaction_history
+    result_verifying_transaction_history = self.validate_transaction_history(i, line, previous_line)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 209, in validate_transaction_history
+    transaction_history_page = TransactionHistoryPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_history_page.py", line 26, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF824780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:10,662] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_history_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:10,663] [9900] [html_test_result.py(55)] - Duration: 4.038601875305176
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.15' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_verify_transaction_history - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.15')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.15' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.15').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.15: 
+[   INFO] [2019-01-25 11:26:10,663] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_history_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:14,708] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_history_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F72E8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 91, in test_verify_transaction_history
+    result_verifying_transaction_history = self.validate_transaction_history(i, line, previous_line)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 209, in validate_transaction_history
+    transaction_history_page = TransactionHistoryPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_history_page.py", line 26, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F72E8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:14,709] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_history_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:14,709] [9900] [html_test_result.py(55)] - Duration: 4.045494079589844
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.16' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_verify_transaction_history - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.16')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.16' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.16').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.16: 
+[   INFO] [2019-01-25 11:26:14,709] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_history_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:18,724] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_history_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938F28&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 91, in test_verify_transaction_history
+    result_verifying_transaction_history = self.validate_transaction_history(i, line, previous_line)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 209, in validate_transaction_history
+    transaction_history_page = TransactionHistoryPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_history_page.py", line 26, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938F28&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:18,725] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_history_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:18,725] [9900] [html_test_result.py(55)] - Duration: 4.015690326690674
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.17' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_verify_transaction_list_source_account - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.17')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.17' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.17').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.17: 
+[   INFO] [2019-01-25 11:26:18,726] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_source_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:22,740] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_source_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938710&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 98, in test_verify_transaction_list_source_account
+    self.validate_transaction_list(i, line, previous_line, 'expenses'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 101, in validate_transaction_list
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF938710&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:22,741] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_source_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:22,741] [9900] [html_test_result.py(55)] - Duration: 4.015066146850586
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.18' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_verify_transaction_list_source_account - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.18')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.18' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.18').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.18: 
+[   INFO] [2019-01-25 11:26:22,741] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_source_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:26,764] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_source_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F7898&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 98, in test_verify_transaction_list_source_account
+    self.validate_transaction_list(i, line, previous_line, 'expenses'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8F7898&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:26,765] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_source_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:26,765] [9900] [html_test_result.py(55)] - Duration: 4.023989915847778
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.19' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_verify_transaction_list_source_account - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.19')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.19' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.19').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.19: 
+[   INFO] [2019-01-25 11:26:26,765] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_source_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:30,794] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_source_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF813A20&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 98, in test_verify_transaction_list_source_account
+    self.validate_transaction_list(i, line, previous_line, 'expenses'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF813A20&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:30,795] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_source_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:30,795] [9900] [html_test_result.py(55)] - Duration: 4.029433012008667
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.20' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_verify_transaction_list_source_account - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.20')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.20' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.20').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.20: 
+[   INFO] [2019-01-25 11:26:30,795] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_source_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:34,809] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_source_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 98, in test_verify_transaction_list_source_account
+    self.validate_transaction_list(i, line, previous_line, 'expenses'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2780&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:34,810] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_source_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:34,810] [9900] [html_test_result.py(55)] - Duration: 4.014984130859375
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.21' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</b>  - 00: test_verify_transaction_list_target_account - 151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.21')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.21' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.21').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.21: 
+[   INFO] [2019-01-25 11:26:34,810] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_target_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:38,833] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_target_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8242B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 105, in test_verify_transaction_list_target_account
+    self.validate_transaction_list(i, line, previous_line, 'incomes'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 101, in validate_transaction_list
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/url (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8242B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:38,834] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_target_account_00_151.00 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:38,834] [9900] [html_test_result.py(55)] - Duration: 4.023836135864258
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.22' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 01: test_verify_transaction_list_target_account - 151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.22')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.22' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.22').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.22: 
+[   INFO] [2019-01-25 11:26:38,834] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_target_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:42,850] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_target_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8B6B70&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 105, in test_verify_transaction_list_target_account
+    self.validate_transaction_list(i, line, previous_line, 'incomes'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8B6B70&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:42,851] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_target_account_01_151.01 Plata lunara RON,pe transe sold (RON) 730 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:42,852] [9900] [html_test_result.py(55)] - Duration: 4.0170111656188965
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.23' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</b>  - 02: test_verify_transaction_list_target_account - 151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.23')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.23' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.23').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.23: 
+[   INFO] [2019-01-25 11:26:42,852] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_target_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:46,871] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_target_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2400&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 105, in test_verify_transaction_list_target_account
+    self.validate_transaction_list(i, line, previous_line, 'incomes'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2400&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:46,872] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_target_account_02_151.02 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Cu lichidare la scadenta (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:46,872] [9900] [html_test_result.py(55)] - Duration: 4.020071268081665
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et1.24' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</b>  - 03: test_verify_transaction_list_target_account - 151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal)</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1.24')">error</a>
+  </td>
+</tr>
+<tr id='div_et1.24' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et1.24').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et1.24: 
+[   INFO] [2019-01-25 11:26:46,872] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_target_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[  ERROR] [2019-01-25 11:26:50,905] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_target_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2278&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_deposit_pf_P_P.py", line 105, in test_verify_transaction_list_target_account
+    self.validate_transaction_list(i, line, previous_line, 'incomes'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 164, in validate_transaction_list
+    transaction_list_page = TransactionListPage(self.driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\transaction_list_page.py", line 24, in __init__
+    BasePage.__init__(self, driver)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\pages\base_page.py", line 37, in __init__
+    self.driver.implicitly_wait(10)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 903, in implicitly_wait
+    'ms': float(time_to_wait) * 1000})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 318, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 70, in request
+    **urlopen_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 321, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 668, in urlopen
+    **response_kw)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\ProgramData\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=56376): Max retries exceeded with url: /session/2a77a36165c0fec2e1cfa0b141645eab/timeouts/implicit_wait (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000013CEF8E2278&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+[   INFO] [2019-01-25 11:26:50,925] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_target_account_03_151.03 Plata lunara RON,pe transe sold (RON) 1095 zile Lunar Fara capitalizare la scadenta (doar principal) (projects.ib.tests.password_password_tests.test_deposit_pf_P_P.DepositPfPP)
+[   INFO] [2019-01-25 11:26:50,925] [9900] [html_test_result.py(55)] - Duration: 4.052353858947754
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr class='errorClass'>
+  <td>PayBillPfPP: Class containing Pay bill "Persoana Fizica" Password-Password tests.</td>
+  <td>3</td>
+  <td class="passCase">0</td>
+  <td class="failCase">0</td>
+  <td class="errorCase">3</td>
+  <td class="skipCase">0</td>
+  <td style="text-align:right;">0.00%</td>
+  <td>
+    <a href="javascript:showClassDetail('c2',3)">
+      <span class="lang-en">Detail</span>
+    </a>
+  </td>
+</tr>
+
+<tr id='et2.1' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>test_pay_bill_pf_p_p_00_UNIVERSITATEA DE VEST TIMISOARA</b>  - 00: test_pay_bill_pf_p_p - UNIVERSITATEA DE VEST TIMISOARA</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et2.1')">error</a>
+  </td>
+</tr>
+<tr id='div_et2.1' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et2.1').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et2.1: 
+[   INFO] [2019-01-25 11:26:50,925] [9900] [html_test_result.py(42)] - Start Test: test_pay_bill_pf_p_p_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[  ERROR] [2019-01-25 11:26:56,955] [9900] [html_test_result.py(119)] - Error Test: test_pay_bill_pf_p_p_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_pay_bill_pf_P_P.py", line 44, in test_pay_bill_pf_p_p
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+[   INFO] [2019-01-25 11:26:56,956] [9900] [html_test_result.py(53)] - Stop Test: test_pay_bill_pf_p_p_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[   INFO] [2019-01-25 11:26:56,956] [9900] [html_test_result.py(55)] - Duration: 6.030794620513916
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et2.2' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>test_verify_transaction_history_00_UNIVERSITATEA DE VEST TIMISOARA</b>  - 00: test_verify_transaction_history - UNIVERSITATEA DE VEST TIMISOARA</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et2.2')">error</a>
+  </td>
+</tr>
+<tr id='div_et2.2' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et2.2').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et2.2: 
+[   INFO] [2019-01-25 11:26:56,956] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_history_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[  ERROR] [2019-01-25 11:27:02,999] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_history_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_pay_bill_pf_P_P.py", line 70, in test_verify_transaction_history
+    result_verifying_transaction_history = self.validate_transaction_history(i, line, previous_line)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 182, in validate_transaction_history
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+[   INFO] [2019-01-25 11:27:03,000] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_history_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[   INFO] [2019-01-25 11:27:03,000] [9900] [html_test_result.py(55)] - Duration: 6.043752431869507
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+<tr id='et2.3' class='none'>
+  <td class='errorCase'  colspan='7'>
+    <div class='testcase'><b>test_verify_transaction_list_00_UNIVERSITATEA DE VEST TIMISOARA</b>  - 00: test_verify_transaction_list - UNIVERSITATEA DE VEST TIMISOARA</div>
+  </td>
+  <td class='errorCase' align='center'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et2.3')">error</a>
+  </td>
+</tr>
+<tr id='div_et2.3' class="hiddenRow">
+  <td colspan='8'>
+    <div class="popup_window">
+      <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_et2.3').className = 'hiddenRow' ">[x]</a>
+      </div>
+      <pre>
+et2.3: 
+[   INFO] [2019-01-25 11:27:03,001] [9900] [html_test_result.py(42)] - Start Test: test_verify_transaction_list_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[  ERROR] [2019-01-25 11:27:09,030] [9900] [html_test_result.py(119)] - Error Test: test_verify_transaction_list_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\parameterized\parameterized.py", line 392, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\password_password_tests\test_pay_bill_pf_P_P.py", line 77, in test_verify_transaction_list
+    self.validate_transaction_list(i, line, previous_line, 'expenses'),
+  File "D:\git\WebAppTestingFramework\runner\projects\ib\tests\base_test.py", line 101, in validate_transaction_list
+    self.driver.get(config.IB_URL)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 332, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+[   INFO] [2019-01-25 11:27:09,030] [9900] [html_test_result.py(53)] - Stop Test: test_verify_transaction_list_00_UNIVERSITATEA DE VEST TIMISOARA (projects.ib.tests.password_password_tests.test_pay_bill_pf_P_P.PayBillPfPP)
+[   INFO] [2019-01-25 11:27:09,031] [9900] [html_test_result.py(55)] - Duration: 6.029114484786987
+
+</pre>
+      <div></div>
+    </div>
+  </td>
+</tr>
+
+  <tr id='total_row'>
+    <td>
+    <span class="lang-en">Total</span>
+    </td>
+    <td>27</td>
+    <td class="passCase">0</td>
+    <td class="failCase">0</td>
+    <td class="errorCase">23</td>
+    <td class="skipCase">4</td>
+    <td style="text-align:right;">0.00%</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+ <div id='ending'>&nbsp;</div>
+    <div id="popup">
+      <div class="bg">
+        <img src="" alt="" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

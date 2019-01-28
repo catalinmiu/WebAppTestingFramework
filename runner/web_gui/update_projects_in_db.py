@@ -54,13 +54,23 @@ def update_projects():
         project.save()
 
 
+class SequentialTestLoader(unittest.TestLoader):
+    def getTestCaseNames(self, testCaseClass):
+        test_names = super().getTestCaseNames(testCaseClass)
+        testcase_methods = list(testCaseClass.__dict__.keys())
+        test_names.sort(key=testcase_methods.index)
+        return test_names
+
+
 def update_tests():
+    update_projects()
     tests_to_project = get_tests_per_project()
 
     for project in list(tests_to_project.keys()):
-        tests_already_in_db = [(test.full_name, test.description) for test in Test.objects.all().filter(project_id=Project.objects.get(name=project))]
+        tests_already_in_db = [(test.full_name, test.title, test.description) for test in Test.objects.all().filter(project_id=Project.objects.get(name=project))]
         tests_in_folder = []
         loader = unittest.TestLoader()
+        # loader = SequentialTestLoader()  # load test in order of apparition
         start_dir = 'projects/' + project
         suite = loader.discover(start_dir)
         tests = []
@@ -73,10 +83,11 @@ def update_tests():
                         desc = ""
                     else:
                         desc = k._testMethodDoc
-                    tests_in_folder.append((str(k.__class__).split("'")[1] + "." + k._testMethodName, desc))
-
+                    tests_in_folder.append((str(k.__class__).split("'")[1] + "." + k._testMethodName, k._testMethodName, desc))
         # compare tests in project folder with tests in database
+
         tests_to_delete = set(tests_already_in_db) - set(tests_in_folder)
+
         for test in tests_to_delete:
             cursor = connection.cursor()
             query = """
@@ -89,7 +100,7 @@ def update_tests():
                 .format(str(Project.objects.get(name=project)), test[0])
             cursor.execute(query)
             connection.commit()
-        tests_to_add = set(tests_in_folder)-set(tests_already_in_db)
-        for i in tests_to_add:
-            test = Test(title=i[0].split(".")[-1], full_name=i[0], description=i[1], project_id=Project.objects.get(name=project))
+        temp3 = [x for x in tests_in_folder if x not in tests_already_in_db]
+        for i in temp3:
+            test = Test(title=i[1], full_name=i[0], description=i[2], project_id=Project.objects.get(name=project))
             test.save()

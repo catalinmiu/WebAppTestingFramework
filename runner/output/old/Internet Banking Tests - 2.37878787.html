@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Internet Banking Tests
+  </title>
+  <meta content="HTMLReport Catalin 1.5.2" name="generator"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <style media="screen" type="text/css">
+   body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  pre {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
+    white-space: pre-wrap
+  }
+
+  h1 {
+    font-size: 16pt;
+    color: gray
+  }
+
+  a.popup_link:hover {
+    color: red
+  }
+
+  .popup_window {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    background-color: #E6E6D6;
+    text-align: left;
+    font-size: 13px
+  }
+
+  #result_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #777
+  }
+
+  #header_row {
+    color: #fff;
+    background-color: #777
+  }
+
+  #result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+    min-width: 70px;
+    width: 100%
+  }
+
+  #result_table td:nth-child(n+2) {
+    text-align: center
+  }
+
+  #total_row {
+    font-weight: bold
+  }
+
+  .passClass,
+  .failClass,
+  .errorClass,
+  .skipClass {
+    font-weight: bold
+  }
+
+  .passCase {
+    background-color: #97cc64
+  }
+
+  .failCase {
+    background-color: #fd5a3e
+  }
+
+  .errorCase {
+    background-color: #ffd050
+  }
+
+  .skipCase {
+    background-color: #aaa
+  }
+
+  .hiddenRow {
+    display: none
+  }
+
+  .testcase {
+    margin-left: 2em
+  }
+
+  #popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none
+  }
+
+  #popup .bg {
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%
+  }
+
+  @media \0screen\,screen\9 {
+    #popup .bg {
+      background-color: #000;
+      filter: Alpha(opacity=50);
+      position: static
+    }
+    #popup .bg img {
+      position: relative
+    }
+  }
+
+  #popup img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  img.pic {
+    width: 500px;
+    cursor: pointer;
+  }
+
+  #wrapper {
+    margin: 0 auto;
+    border-top: solid 2px;
+  }
+  
+  #wrapper.lang-en p.lang-en {
+  }
+
+  #wrapper.lang-en span.lang-en {
+  }
+
+  #lang ul {
+    float: right;
+    margin: 0;
+    padding: 2px 10px 4px 10px;
+    border-radius: 0 0 4px 4px;
+    list-style: none;
+  }
+
+  #lang li {
+    margin: 0;
+    float: left;
+    padding: 0 5px;
+  }
+
+  #lang li a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-indent: -4em;
+    overflow: hidden;
+  }
+  </style>
+  <script language="javascript" type="text/javascript">
+   output_list = Array();
+function showCase(level) {
+  trs = document.getElementsByTagName("tr");
+  for (var i = 0; i < trs.length; i++) {
+    tr = trs[i];
+    id = tr.id;
+    if (id.substr(0, 2) === "st") {
+      if (level === 4 || level === 3) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "ft") {
+      if (level === 4 || level === 2) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "pt") {
+      if (level === 4 || level === 1) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 2) === "et") {
+      if (level === 4 || level === 5 || level === 2) {
+        tr.className = "";
+      } else {
+        tr.className = "hiddenRow";
+      }
+    }
+    if (id.substr(0, 4) === "div_") { tr.className = "hiddenRow"; }
+  }
+}
+
+function showClassDetail(cid, count) {
+  var id_list = Array(count);
+  var toHide = 1;
+  for (var i = 0; i < count; i++) {
+    tid0 = "t" + cid.substr(1) + "." + (i + 1);
+    tid = "f" + tid0;
+    tr = document.getElementById(tid);
+    if (!tr) {
+      tid = "p" + tid0;
+      tr = document.getElementById(tid);
+      if (!tr) {
+        tid = "e" + tid0;
+        tr = document.getElementById(tid);
+        if (tr === null) {
+          tid = "s" + tid0;
+          tr = document.getElementById(tid);
+        }
+      }
+    }
+    id_list[i] = tid;
+    if (tr.className) {
+      toHide = 0;
+    }
+  }
+  for (var i = 0; i < count; i++) {
+    tid = id_list[i];
+    if (toHide && tid.indexOf("p") !== -1) {
+      document.getElementById(tid).className = "hiddenRow";
+    } else {
+      document.getElementById(tid).className = "";
+    }
+    document.getElementById("div_" + tid).className = "hiddenRow";
+  }
+}
+
+function showTestDetail(div_id) {
+  var details_div = document.getElementById(div_id);
+  var className = details_div.className;
+  if (className != "") {
+    details_div.className = "";
+  } else {
+    details_div.className = "hiddenRow";
+  }
+}
+
+function html_escape(s) {
+  s = s.replace(/&/g, "&amp;");
+  s = s.replace(/</g, "&lt;");
+  s = s.replace(/>/g, "&gt;");
+  return s;
+}
+
+function load() {
+  var el_wrapper = document.getElementById('wrapper');
+  document.getElementById('lang-en').onclick = function () { el_wrapper.className = 'lang-en'; };
+
+  var h = (location.hash || '').replace(/#/, '');
+  var nav_lang;
+  el_wrapper.className = 'lang-en' + h;
+
+  var imgs = document.getElementsByClassName("pic");
+  var lens = imgs.length;
+  var popup = document.getElementById("popup");
+  for (var i = 0; i < lens; i++) {
+    imgs[i].onclick = function (event) {
+      event = event || window.event;
+      var target = document.elementFromPoint(event.clientX, event.clientY);
+      showBig(target.src);
+    };
+  }
+  popup.onclick = function () {
+    popup.getElementsByTagName("img")[0].src = "";
+    popup.style.display = "none";
+    popup.style.zIndex = "-1";
+  };
+  function showBig(src) {
+    popup.getElementsByTagName("img")[0].src = src;
+    popup.style.display = "block";
+    popup.style.zIndex = "999999";
+  }
+  google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Status', 'Status'],
+      ['Failed', Number(document.getElementById('no_of_failed').innerHTML)],
+      ['Passed', Number(document.getElementById('no_of_passed').innerHTML)],
+      ['Skip', Number(document.getElementById('no_of_skip').innerHTML)],
+      ['Error', Number(document.getElementById('no_of_error').innerHTML)],
+    
+    ]);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = {'title':'Status', 'width':400, 'height':300, colors: ['#D8000C', '#4BB543', '#F1C40F', '#17202A'],};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+}
+  </script>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" rel="stylesheet"/>
+  <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript">
+  </script>
+ </head>
+ <body onload="load();showCase(2)">
+  <div class="lang-en" id="wrapper">
+   <div class="heading col-md-12">
+    <h1 id="title">
+     Internet Banking Tests - 2.352
+    </h1>
+    <p class="attribute">
+     <strong>
+      Start Time:
+     </strong>
+     <span class="lang-en" id="start_time">
+      2018-11-26 15:55:01
+     </span>
+    </p>
+    <p class="attribute">
+     <strong>
+      End Time:
+     </strong>
+     <span class="lang-en" id="end_time">
+      2018-11-26 16:05:58
+     </span>
+    </p>
+    <p class="attribute">
+     <strong>
+      Duration:
+     </strong>
+     <span class="lang-en" id="duration_time">
+      0:10:57.172988
+     </span>
+    </p>
+    <p class="attribute">
+     <strong>
+      <span class="lang-en">
+       Status:
+      </span>
+     </strong>
+     Total:
+     <span class="lang-en" id="no_of_total">
+      18
+     </span>
+     Passed:
+     <span class="lang-en" id="no_of_passed">
+      18
+     </span>
+     Failed:
+     <span class="lang-en" id="no_of_failed">
+      0
+     </span>
+     Error:
+     <span class="lang-en" id="no_of_error">
+      0
+     </span>
+     Skipped:
+     <span class="lang-en" id="no_of_skip">
+      0
+     </span>
+    </p>
+   </div>
+   <div class="col-md-6" id="piechart">
+   </div>
+   <div class="col-md-6" id="lang">
+    <ul>
+     <li>
+      <div href="#en" id="lang-en" title="English">
+      </div>
+     </li>
+    </ul>
+   </div>
+   <br/>
+   <p id="show_detail_line">
+    Show:
+    <input name="1" onclick="showCase(0)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      Summary
+     </span>
+    </label>
+    <br/>
+    <input name="1" onclick="showCase(1)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      Pass
+     </span>
+    </label>
+    <br/>
+    <input checked="" name="1" onclick="showCase(2)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      Fail
+     </span>
+    </label>
+    <br/>
+    <input name="1" onclick="showCase(5)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      Error
+     </span>
+    </label>
+    <br/>
+    <input name="1" onclick="showCase(3)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      Skip
+     </span>
+    </label>
+    <br/>
+    <input name="1" onclick="showCase(4)" type="radio" value="1"/>
+    <label for="1">
+     <span class="lang-en">
+      ALL
+     </span>
+    </label>
+   </p>
+   <table id="result_table">
+    <tr id="header_row">
+     <th>
+      <span class="lang-en">
+       Test Group/Test case
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Count
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Passed
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Failed
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Error
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Skipped
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       Statistics
+      </span>
+     </th>
+     <th>
+      <span class="lang-en">
+       View
+      </span>
+     </th>
+    </tr>
+    <tr class="passClass">
+     <td>
+      tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP
+     </td>
+     <td>
+      4
+     </td>
+     <td class="passCase">
+      4
+     </td>
+     <td class="failCase">
+      0
+     </td>
+     <td class="errorCase">
+      0
+     </td>
+     <td class="skipCase">
+      0
+     </td>
+     <td style="text-align:right;">
+      100.00%
+     </td>
+     <td>
+      <a href="javascript:showClassDetail('c1',4)">
+       <span class="lang-en">
+        Detail
+       </span>
+      </a>
+     </td>
+    </tr>
+    <tr class="none" id="pt1.1">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       01RONRONSV-SV Titular-Titular: 00: test_transfer_to_my_own_accounts_pf_p_p - 2.01RONRONSV-SV Titular-Titular
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt1.1')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt1.1">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt1.1').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt1.1: 
+[   INFO] [2018-11-26 15:55:07,111] [12536] [html_test_result.py(41)] - Start Test: test_transfer_to_my_own_accounts_pf_p_p_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:56:47,498] [12536] [html_test_result.py(99)] - Pass Test: test_transfer_to_my_own_accounts_pf_p_p_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:56:47,498] [12536] [html_test_result.py(52)] - Stop Test: test_transfer_to_my_own_accounts_pf_p_p_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:56:47,498] [12536] [html_test_result.py(54)] - Duration: 100.3870177268982
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt1.2">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       01RONRONSV-SV Titular-Titular: 00: test_verify_transaction_history - 2.01RONRONSV-SV Titular-Titular
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt1.2')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt1.2">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt1.2').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt1.2: 
+[   INFO] [2018-11-26 15:56:47,498] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:00,723] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:00,723] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:00,723] [12536] [html_test_result.py(54)] - Duration: 73.22456073760986
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt1.3">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       01RONRONSV-SV Titular-Titular: 00: test_verify_transaction_list_source_account - 2.01RONRONSV-SV Titular-Titular
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt1.3')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt1.3">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt1.3').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt1.3: 
+[   INFO] [2018-11-26 15:58:00,723] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_source_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:53,508] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_source_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:53,508] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_source_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:58:53,508] [12536] [html_test_result.py(54)] - Duration: 52.785407066345215
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt1.4">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       01RONRONSV-SV Titular-Titular: 00: test_verify_transaction_list_target_account - 2.01RONRONSV-SV Titular-Titular
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt1.4')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt1.4">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt1.4').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt1.4: 
+[   INFO] [2018-11-26 15:58:53,508] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_target_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:59:40,885] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_target_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:59:40,885] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_target_account_00_2.01RONRONSV-SV Titular-Titular (tests.password_password_tests.transfer_to_my_own_accounts_pf_P_P.TransferToMyOwnAccountsPfPP)
+[   INFO] [2018-11-26 15:59:40,885] [12536] [html_test_result.py(54)] - Duration: 47.377216815948486
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="passClass">
+     <td>
+      tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP
+     </td>
+     <td>
+      3
+     </td>
+     <td class="passCase">
+      3
+     </td>
+     <td class="failCase">
+      0
+     </td>
+     <td class="errorCase">
+      0
+     </td>
+     <td class="skipCase">
+      0
+     </td>
+     <td style="text-align:right;">
+      100.00%
+     </td>
+     <td>
+      <a href="javascript:showClassDetail('c2',3)">
+       <span class="lang-en">
+        Detail
+       </span>
+      </a>
+     </td>
+    </tr>
+    <tr class="none" id="pt2.1">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       test_domestic_transfer_pf_p_p_00_benef anonim intra: 00: test_domestic_transfer_pf_p_p - benef anonim intra
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt2.1')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt2.1">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt2.1').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt2.1: 
+[   INFO] [2018-11-26 15:59:47,831] [12536] [html_test_result.py(41)] - Start Test: test_domestic_transfer_pf_p_p_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:01:20,581] [12536] [html_test_result.py(99)] - Pass Test: test_domestic_transfer_pf_p_p_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:01:20,581] [12536] [html_test_result.py(52)] - Stop Test: test_domestic_transfer_pf_p_p_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:01:20,581] [12536] [html_test_result.py(54)] - Duration: 92.7501630783081
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt2.2">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       test_verify_transaction_history_00_benef anonim intra: 00: test_verify_transaction_history - benef anonim intra
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt2.2')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt2.2">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt2.2').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt2.2: 
+[   INFO] [2018-11-26 16:01:20,581] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:01,064] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:01,064] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:01,064] [12536] [html_test_result.py(54)] - Duration: 40.48339128494263
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt2.3">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       test_verify_transaction_list_00_benef anonim intra: 00: test_verify_transaction_list - benef anonim intra
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt2.3')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt2.3">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt2.3').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt2.3: 
+[   INFO] [2018-11-26 16:02:01,064] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:38,007] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:38,007] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_00_benef anonim intra (tests.password_password_tests.domestic_transfer_pf_P_P.DomesticTransferPfPP)
+[   INFO] [2018-11-26 16:02:38,007] [12536] [html_test_result.py(54)] - Duration: 36.942694425582886
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="passClass">
+     <td>
+      tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP
+     </td>
+     <td>
+      2
+     </td>
+     <td class="passCase">
+      2
+     </td>
+     <td class="failCase">
+      0
+     </td>
+     <td class="errorCase">
+      0
+     </td>
+     <td class="skipCase">
+      0
+     </td>
+     <td style="text-align:right;">
+      100.00%
+     </td>
+     <td>
+      <a href="javascript:showClassDetail('c3',2)">
+       <span class="lang-en">
+        Detail
+       </span>
+      </a>
+     </td>
+    </tr>
+    <tr class="none" id="pt3.1">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       test_international_transfer_pf_p_p_00_benef Anglia SHA: 00: test_international_transfer_pf_p_p - benef Anglia SHA
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt3.1')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt3.1">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt3.1').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt3.1: 
+[   INFO] [2018-11-26 16:02:44,372] [12536] [html_test_result.py(41)] - Start Test: test_international_transfer_pf_p_p_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:04:25,925] [12536] [html_test_result.py(99)] - Pass Test: test_international_transfer_pf_p_p_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:04:25,925] [12536] [html_test_result.py(52)] - Stop Test: test_international_transfer_pf_p_p_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:04:25,925] [12536] [html_test_result.py(54)] - Duration: 101.55249381065369
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr class="none" id="pt3.2">
+     <td class="passCase" colspan="7">
+      <div class="testcase">
+       test_verify_transaction_history_00_benef Anglia SHA: 00: test_verify_transaction_history - benef Anglia SHA
+      </div>
+     </td>
+     <td align="center" class="passCase">
+      <a class="popup_link" href="javascript:showTestDetail('div_pt3.2')" onfocus="this.blur();">
+       pass
+      </a>
+     </td>
+    </tr>
+    <tr class="hiddenRow" id="div_pt3.2">
+     <td colspan="8">
+      <div class="popup_window">
+       <div style="text-align: right; color:red;cursor:pointer">
+        <a onclick="document.getElementById('div_pt3.2').className = 'hiddenRow' " onfocus="this.blur();">
+         [x]
+        </a>
+       </div>
+       <pre>
+pt3.2: 
+[   INFO] [2018-11-26 16:04:25,925] [12536] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:05:07,791] [12536] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:05:07,791] [12536] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_benef Anglia SHA (tests.password_password_tests.international_transfer_pf_P_P.InternationalTransferPfPP)
+[   INFO] [2018-11-26 16:05:07,791] [12536] [html_test_result.py(54)] - Duration: 41.86648440361023
+
+</pre>
+       <div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <table id="result_table">
+    </table>
+    <table id="result_table">
+     <tr class="passClass">
+      <td>
+       tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT
+      </td>
+      <td>
+       2
+      </td>
+      <td class="passCase">
+       2
+      </td>
+      <td class="failCase">
+       0
+      </td>
+      <td class="errorCase">
+       0
+      </td>
+      <td class="skipCase">
+       0
+      </td>
+      <td style="text-align:right;">
+       100.00%
+      </td>
+      <td>
+       <a href="javascript:showClassDetail('c10010' ,2)">
+        <span class="lang-en">
+         Detail
+        </span>
+       </a>
+      </td>
+     </tr>
+     <tr class="none" id="pt10010.1">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        test_international_transfer_pf_t_t_00_benef Spania OUR: 00: test_international_transfer_pf_t_t - benef Spania OUR
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10010.1')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10010.1">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10010.1').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.1: 
+[   INFO] [2018-11-26 15:56:48,355] [11040] [html_test_result.py(41)] - Start Test: test_international_transfer_pf_t_t_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:01,209] [11040] [html_test_result.py(99)] - Pass Test: test_international_transfer_pf_t_t_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:01,209] [11040] [html_test_result.py(52)] - Stop Test: test_international_transfer_pf_t_t_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:01,209] [11040] [html_test_result.py(54)] - Duration: 192.85320234298706
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10010.2">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        test_verify_transaction_history_00_benef Spania OUR: 00: test_verify_transaction_history - benef Spania OUR
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10010.2')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10010.2">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10010.2').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.2: 
+[   INFO] [2018-11-26 16:00:01,209] [11040] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:49,128] [11040] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:49,128] [11040] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_benef Spania OUR (tests.token_token_tests.international_transfer_pf_T_T.InternationalTransferPfTT)
+[   INFO] [2018-11-26 16:00:49,128] [11040] [html_test_result.py(54)] - Duration: 47.919930934906006
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="passClass">
+      <td>
+       tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT
+      </td>
+      <td>
+       3
+      </td>
+      <td class="passCase">
+       3
+      </td>
+      <td class="failCase">
+       0
+      </td>
+      <td class="errorCase">
+       0
+      </td>
+      <td class="skipCase">
+       0
+      </td>
+      <td style="text-align:right;">
+       100.00%
+      </td>
+      <td>
+       <a href="javascript:showClassDetail('c10016' ,3)">
+        <span class="lang-en">
+         Detail
+        </span>
+       </a>
+      </td>
+     </tr>
+     <tr class="none" id="pt10016.1">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        test_domestic_transfer_pf_t_t_00_benef anonim intra: 00: test_domestic_transfer_pf_t_t - benef anonim intra
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10016.1')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10016.1">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10016.1').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt2.1: 
+[   INFO] [2018-11-26 16:01:10,664] [11040] [html_test_result.py(41)] - Start Test: test_domestic_transfer_pf_t_t_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:04:32,716] [11040] [html_test_result.py(99)] - Pass Test: test_domestic_transfer_pf_t_t_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:04:32,716] [11040] [html_test_result.py(52)] - Stop Test: test_domestic_transfer_pf_t_t_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:04:32,716] [11040] [html_test_result.py(54)] - Duration: 202.051500082016
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10016.2">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        test_verify_transaction_history_00_benef anonim intra: 00: test_verify_transaction_history - benef anonim intra
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10016.2')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10016.2">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10016.2').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt2.2: 
+[   INFO] [2018-11-26 16:04:32,716] [11040] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:16,825] [11040] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:16,825] [11040] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:16,825] [11040] [html_test_result.py(54)] - Duration: 44.109577894210815
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10016.3">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        test_verify_transaction_list_00_benef anonim intra: 00: test_verify_transaction_list - benef anonim intra
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10016.3')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10016.3">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10016.3').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt2.3: 
+[   INFO] [2018-11-26 16:05:16,825] [11040] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:58,152] [11040] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:58,152] [11040] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_00_benef anonim intra (tests.token_token_tests.domestic_transfer_pf_T_T.DomesticTransferPfTT)
+[   INFO] [2018-11-26 16:05:58,152] [11040] [html_test_result.py(54)] - Duration: 41.327070474624634
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+    </table>
+    <table id="result_table">
+    </table>
+    <table id="result_table">
+     <tr class="passClass">
+      <td>
+       tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP
+      </td>
+      <td>
+       4
+      </td>
+      <td class="passCase">
+       4
+      </td>
+      <td class="failCase">
+       0
+      </td>
+      <td class="errorCase">
+       0
+      </td>
+      <td class="skipCase">
+       0
+      </td>
+      <td style="text-align:right;">
+       100.00%
+      </td>
+      <td>
+       <a href="javascript:showClassDetail('c10035' ,4)">
+        <span class="lang-en">
+         Detail
+        </span>
+       </a>
+      </td>
+     </tr>
+     <tr class="none" id="pt10035.1">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        11RONRONsv-sv ron: 00: test_transfer_to_my_own_accounts_pj_p_p - 1.11RONRONsv-sv ron
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10035.1')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10035.1">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10035.1').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.1: 
+[   INFO] [2018-11-26 15:55:07,205] [8896] [html_test_result.py(41)] - Start Test: test_transfer_to_my_own_accounts_pj_p_p_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:56:36,686] [8896] [html_test_result.py(99)] - Pass Test: test_transfer_to_my_own_accounts_pj_p_p_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:56:36,686] [8896] [html_test_result.py(52)] - Stop Test: test_transfer_to_my_own_accounts_pj_p_p_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:56:36,686] [8896] [html_test_result.py(54)] - Duration: 89.48117542266846
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10035.2">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        11RONRONsv-sv ron: 00: test_verify_transaction_history - 1.11RONRONsv-sv ron
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10035.2')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10035.2">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10035.2').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.2: 
+[   INFO] [2018-11-26 15:56:36,686] [8896] [html_test_result.py(41)] - Start Test: test_verify_transaction_history_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:57:21,127] [8896] [html_test_result.py(99)] - Pass Test: test_verify_transaction_history_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:57:21,127] [8896] [html_test_result.py(52)] - Stop Test: test_verify_transaction_history_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:57:21,127] [8896] [html_test_result.py(54)] - Duration: 44.44037890434265
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10035.3">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        11RONRONsv-sv ron: 00: test_verify_transaction_list_source_account - 1.11RONRONsv-sv ron
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10035.3')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10035.3">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10035.3').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.3: 
+[   INFO] [2018-11-26 15:57:21,127] [8896] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_source_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:00,384] [8896] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_source_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:00,384] [8896] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_source_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:00,384] [8896] [html_test_result.py(54)] - Duration: 39.25766444206238
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr class="none" id="pt10035.4">
+      <td class="passCase" colspan="7">
+       <div class="testcase">
+        11RONRONsv-sv ron: 00: test_verify_transaction_list_target_account - 1.11RONRONsv-sv ron
+       </div>
+      </td>
+      <td align="center" class="passCase">
+       <a class="popup_link" href="javascript:showTestDetail('div_pt10035.4')" onfocus="this.blur();">
+        pass
+       </a>
+      </td>
+     </tr>
+     <tr class="hiddenRow" id="div_pt10035.4">
+      <td colspan="8">
+       <div class="popup_window">
+        <div style="text-align: right; color:red;cursor:pointer">
+         <a onclick="document.getElementById('div_pt10035.4').className = 'hiddenRow' " onfocus="this.blur();">
+          [x]
+         </a>
+        </div>
+        <pre>
+pt1.4: 
+[   INFO] [2018-11-26 15:58:00,384] [8896] [html_test_result.py(41)] - Start Test: test_verify_transaction_list_target_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:36,476] [8896] [html_test_result.py(99)] - Pass Test: test_verify_transaction_list_target_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:36,476] [8896] [html_test_result.py(52)] - Stop Test: test_verify_transaction_list_target_account_00_1.11RONRONsv-sv ron (tests.password_password_tests.transfer_to_my_own_accounts_pj_P_P.TransferToMyOwnAccountsPjPP)
+[   INFO] [2018-11-26 15:58:36,476] [8896] [html_test_result.py(54)] - Duration: 36.09187722206116
+
+</pre>
+        <div>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr id="total_row">
+      <td>
+       <span class="lang-en">
+        Total
+       </span>
+      </td>
+      <td class="totalCase">
+       18
+      </td>
+      <td class="passCase">
+       18
+      </td>
+      <td class="failCase">
+       0
+      </td>
+      <td class="errorCase">
+       0
+      </td>
+      <td class="skipCase">
+       0
+      </td>
+      <td class="statisticCase" style="text-align:right;">
+       100.0%
+      </td>
+      <td>
+      </td>
+     </tr>
+    </table>
+   </table>
+   <div id="ending">
+   </div>
+   <div id="popup">
+    <div class="bg">
+     <img alt="" src=""/>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

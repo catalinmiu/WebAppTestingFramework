@@ -710,7 +710,7 @@ h1.title-testimonial.font-dosis { font-weight: 400; letter-spacing: 9.5px; margi
 .post .content-post .readmore:hover, .aboutus-viewall .readmore:hover, .product .product-item a.add-to-cart:hover  { color: #717779; }
 .slider-overflow { overflow: hidden; }
 
-.header .logo {	margin: 20px 0 0 0;	}
+.header .logo {	margin: 45px 0 0 0;	}
 .shawdow-header { box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2); }
 
 /*  Header-style2 */
@@ -1407,8 +1407,8 @@ ul.flat-infomation li::before { position: absolute; right: 0; top: 5px; content:
 
 .page-title-heading .title {
     font-size: 48px;
-    font-weight: 300;
-    line-height: 0px;
+    font-weight: 600;
+    line-height: 60px;
     color: #fff;
     text-align: center;
     letter-spacing: 0.8px;

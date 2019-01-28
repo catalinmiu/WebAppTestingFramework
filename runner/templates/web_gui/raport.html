@@ -1,0 +1,86 @@
+{% extends "app2/base.html" %}
+{% load define_action %}
+{% block content %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Status'],
+      ['Failed', {{fail}}],
+      ['Passed', {{success}}],
+      ['Skip', {{skip}}],
+      ['Error', {{error}}]
+        ]);
+
+              var options = {'title':'Status', 'width':400, 'height':300, colors: ['#D8000C', '#4BB543', '#F1C40F', '#17202A'],};
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+<!-- Page title -->
+    <section class="parallax parallax1 page-title">
+        <div class="overlay-parallax "></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h3 class="title">Raport</h3>
+                    </div><!-- /.page-title-captions -->
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="flat-row v8" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-center padding-contact">
+                        {% csrf_token %}
+                        <div id="piechart"></div>
+                        <ul class="list-group t20">
+                            <div class="row">
+                                <div class="col-md-12">
+                                     <div class="flat-accordion">
+                                         {% for test in tests %}
+                                            <div class="flat-toggle">
+                                                {% if test.result == 0%}
+                                                    <div class="toggle-title bg-success">
+                                                {% elif test.result == 1%}
+                                                    <div class="toggle-title bg-danger">
+                                                {% elif test.result == 2%}
+                                                    <div class="toggle-title bg-warning">
+                                                {% elif test.result == 3%}
+                                                    <div class="toggle-title bg-info">
+
+                                                {% endif %}
+
+                                                    {{ test.title }}
+                                                </div>
+                                                <div class="toggle-content">
+                                                    <p>{{ test.logs }}</p>
+                                                    <p>{{ test.result }}</p>
+                                                </div>
+                                            </div><!-- /toggle -->
+
+                                        {% endfor %}
+                                    </div><!-- /.accordion -->
+                                </div>
+                            </div>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

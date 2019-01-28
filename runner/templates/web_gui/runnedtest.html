@@ -1,0 +1,36 @@
+{% extends "app2/base.html" %}
+{% load define_action %}
+{% block content %}
+<!-- Page title -->
+    <section class="parallax parallax1 page-title">
+        <div class="overlay-parallax "></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h3 class="title">Runnings</h3>
+                    </div><!-- /.page-title-captions -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="flat-row v8" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-center padding-contact">
+                        {% csrf_token %}
+                        <ul class="list-group t20">
+                            <li class="list-group-item">{{ test.title }}</li>
+                                <li class="list-group-item">{{ test.logs }}</li>
+                                <li class="list-group-item">{{ test.result }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
